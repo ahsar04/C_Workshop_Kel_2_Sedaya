@@ -11,7 +11,7 @@ if ($_POST['data']=='new-post') {
 		$data=mysqli_num_rows($getData);
 		echo '<span class="right badge badge-warning">'.$data.'</span>';
 }elseif ($_POST['data']=='active') {
-    $getData = $syntax->view('seni where status=1');
+    $getData = $syntax->view('seni where status!=0');
 		$data=mysqli_num_rows($getData);
 		echo '<span class="right badge badge-success">'.$data.'</span>';
 }elseif ($_POST['data']=='new') {

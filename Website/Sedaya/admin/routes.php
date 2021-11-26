@@ -24,12 +24,10 @@
 			}
 		}elseif($page == 'jenis-seni'){
 			include 'views/jenis/index.php';
-		}elseif($page == 'seni'){
-			include 'views/seni/index.php';
-		}elseif($page == 'seni/insert'){
-			include 'views/seni/insert.php';
-		}elseif($page == 'seni/update'){
-			include 'views/seni/update.php';
+		}elseif($page == 'post-active'){
+			include 'views/seni/active.php';
+		}elseif($page == 'post-pending'){
+			include 'views/seni/pending.php';
 		}elseif($page == 'user'){
 			include 'views/user/index.php';
 		}elseif($page == 'user/insert'){

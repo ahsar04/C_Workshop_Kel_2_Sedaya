@@ -11,10 +11,10 @@ if($proses=='update'){
 	$alamat=$_POST['alamat'];
 	$username=md5($_POST['username']);
 	$pasword=md5($_POST['password']);
-	// $status=2;
+	$status=$_POST['status'];
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $adm_id."_".$_FILES["foto"]["name"];
+        $filename = $adm_id."_".date("Y-m-d H:i:s");
         $filetype = $_FILES["foto"]["type"];
         $filesize = $_FILES["foto"]["size"];
 		$foto=$filename;
@@ -36,7 +36,7 @@ if($proses=='update'){
             	$file='../public/img/'.$fotoawal;
             	unlink($file);
                 move_uploaded_file($_FILES["foto"]["tmp_name"], "../public/img/" . $filename);
-				$cek_proses=$syntax->update("mstr_admin","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',username='$username',password='$pasword',foto='$foto'","adm_id='$adm_id'");
+				$cek_proses=$syntax->update("mstr_admin","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',username='$username',password='$pasword',foto='$foto',status='$status'","adm_id='$adm_id'");
 				if($cek_proses){
 					header('location: ' .base_url('admin/index.php?page=admin'));
 				}else{
