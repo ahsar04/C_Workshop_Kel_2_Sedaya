@@ -79,12 +79,12 @@
                     ?>
                     </td>
                     <td class="text-center">
-                        <button data-toggle="modal" data-target="#modal-lg" onclick="tampildata('<?=base_url('admin/public/img/'.$foto)?>','<?=$nama?>','<?=$jk?>','<?=$tmp_lahir?>','<?=$tgl_lahir?>','<?=$telp?>','<?=$email?>','<?=$status?>','<?=$alamat?>')" class="btn btn-primary"><i class="fa fa-newspaper"></i></button>
+                        <button data-toggle="modal" data-target="#modal-lg" onclick="tampildata('<?=base_url('admin/public/img/'.$foto)?>','<?=$nama?>','<?=$jk?>','<?=$tmp_lahir?>','<?=$tgl_lahir?>','<?=$telp?>','<?=$email?>','<?=$status?>','<?=$alamat?>')" class="btn btn-secondary"><i class="fa fa-newspaper"></i></button>
                         <a href="<?=base_url('admin/index.php?page=admin/update&&adm_id='.$r['adm_id']);?>"><button class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                         <a href="<?php if ($_SESSION['login']['adm_id']==$r['adm_id']) {
                                 echo "#";
                               }else {echo base_url('admin/proses/admin.php?proses=delete&&adm_id='.$r['adm_id']);}?>" onclick="<?php if ($_SESSION['login']['adm_id']==$r['adm_id']) {
-                                echo "alert('Data tidak dapat dihapus!')";
+                                echo "dangerMsg('".$nama."')";
                               }else { echo "return confirm('Yakin Hapus')";  }?>"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
                     </td>
                   </tr>
@@ -111,7 +111,7 @@
           <!-- /.col -->
           <div class="modal fade" id="modal-lg">
             <div class="modal-dialog modal-lg">
-              <div class="modal-content">
+              <div class="modal-content bg-info">
                 <div class="modal-header">
                   <h4 class="modal-title">Detail</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -119,9 +119,11 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <table class="table">
+                  <table class="">
                     <tr >
-                      <td rowspan="7"><img src="<?=base_url('admin/public/img/avatar5.png')?>" id="foto" width="220px" height="250px" ></td>
+                      <td rowspan="7"><img src="<?=base_url('admin/public/img/avatar5.png')?>" class="img-fluid" id="foto" width="220px" height="250px" ></td>
+                      <td rowspan="7"> <div class="col-md-1"></div></td>
+                      <td rowspan="7"> <div class="col-md-1"></div></td>
                     </tr>
                     <tr>
                       <td><b>Nama </b></td>
@@ -149,17 +151,19 @@
                     </tr>
                   </table>
                     <br>
-                  <table class="table">
+                  <table class="">
                     <tr>
+                      <td><div class="col-md-1"></div></td>
                       <td><b>Alamat: </b></td>
                     </tr>
                     <tr>
+                      <td><div class="col-md-1"></div></td>
                       <td><span id="alamat"></span></td>
                     </tr>
                   </table>
                 </div>
                 <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
               <!-- /.modal-content -->
@@ -196,5 +200,19 @@
       }
       $('#status').html(setStatus);
       $('#alamat').html(alamat);
+      }
+    </script>
+    <script>
+      function dangerMsg(data) {
+        var Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+          Toast.fire({
+            icon: "error",
+            title: data+" tidak dapat dihapus.",
+          });
       }
     </script>

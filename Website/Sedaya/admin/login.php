@@ -3,34 +3,33 @@ include "syntax.php";
 session_start();
 
 if (isset($_POST['login'])) {
-    $user = md5($_POST['username']);
+    $user = $_POST['username'];
     $pass = md5($_POST['password']);
+    // $user = $_POST['username'];
+    // $pass = $_POST['password'];
 
     if (!empty(trim($user)) && !empty(trim($pass))) {
     $cek_login = $syntax->view_kon("mstr_admin","username='$user' && password='$pass'");
     $num = mysqli_num_rows($cek_login);
     $row = $cek_login->fetch_array();
-            $adm_id = $row['adm_id'];
-            $userVal = $row['username'];
-            $passVal = $row['password'];
-            $userName = $row['nama'];
-            $status = $row['status'];
+            // $adm_id = $row['adm_id'];
+            // $userVal = $row['username'];
+            // $passVal = $row['password'];
+            // $userName = $row['nama'];
+            // $status = $row['status'];
         if ($num != 0) {
-            if ($userVal==$user && $passVal= $pass) {
+            if ($row['username']==$user && $$row['password']= $pass) {
                 session_start();
                 $_SESSION['login'] = $row;
                 header("location:index.php?page=home");
             }else {
                 echo "<script>alert('Username atau Password salah!!')</script>";
-                header('location:login.php');
+                echo "<script>window.location.href='login.php'</script>";
             }
         }else{
-            echo "<script>alert('User tidak ditemukan!!')</script>";
-            header('location:login.php');
+            echo "<script>alert('Username tidak ditemukan!')</script>";
+            echo "<script>window.location.href='login.php'</script>";
         }
-    }else{
-        echo "<script>alert('Data tidak boleh kosong!!')</script>";
-        echo $error;
     }
 }
 ?>
@@ -38,8 +37,8 @@ if (isset($_POST['login'])) {
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Login Template</title>
+    <link rel="icon" href="<?=base_url('admin/dist/img/sedaya.png')?>" type="image/icon type">
+    <title>Sedaya | Login</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
@@ -58,7 +57,7 @@ if (isset($_POST['login'])) {
                 type="text"
                 name="username"
                 class="form-control field"
-                placeholder="Username"
+                placeholder="Username" required
               />
               <svg
                 width="1.2em"
@@ -79,7 +78,7 @@ if (isset($_POST['login'])) {
                 type="password"
                 name="password"
                 class="form-control field"
-                placeholder="Password"
+                placeholder="Password" required
               />
               <svg
                 width="1.2em"

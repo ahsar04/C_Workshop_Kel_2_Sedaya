@@ -93,20 +93,25 @@
 							<input type="text" class="form-control" placeholder="Username" name="username" value="<?=$r['username']?>" required>
 							</div>
 						</div>
-						<div class="form-group row">
+						<!-- <div class="form-group row">
 							<label class="col-sm-2 col-form-label">Password *</label>
 							<div class="col-sm-10">
 							<input type="password" class="form-control" placeholder="Password" name="password" value="<?=$r['password']?>" required>
 							</div>
-						</div>
+						</div> -->
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Status *</label>
 							<div class="col-sm-10">
 							<select name="status" class="form-control" id="">
 								<?php
 								if ($r['adm_id']!='adm1') {
-									echo '<option class="form-control" value="1">Admin Master</option>';
-									echo '<option class="form-control" value="2">Operator</option>';
+									if ($r['status']==1) {
+										echo '<option class="form-control" value="1" selected>Admin Master</option>';
+										echo '<option class="form-control" value="2">Operator</option>';
+									}else{
+										echo '<option class="form-control" value="1">Admin Master</option>';
+										echo '<option class="form-control" value="2" selected>Operator</option>';
+									}
 								}else{
 									echo'<option class="form-control" value="1">Admin Master</option>';
 								}

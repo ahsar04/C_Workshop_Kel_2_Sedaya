@@ -20,7 +20,7 @@
         <div class="row"> 
           <div class="col-md-4">
                 <!-- /.card-header -->
-              <div class="card card-primary">
+              <div class="card card-info  ">
                 <div class="card-header">
                   <h3 class="card-title">Add data jenis</h3>
                 </div>
@@ -49,7 +49,8 @@
           <div class="col-md-8">
               <!-- /.card-header -->
             <div class="card">
-              <div class="card-header">
+              <div class="card-header bg-info">
+                <h3 class="card-title">Data jenis</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

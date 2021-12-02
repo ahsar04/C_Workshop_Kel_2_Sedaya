@@ -9,8 +9,8 @@ if($proses=='update'){
 	$telp=$_POST['telp'];
 	$email=$_POST['email'];
 	$alamat=$_POST['alamat'];
-	$username=md5($_POST['username']);
-	$pasword=md5($_POST['password']);
+	$username=$_POST['username'];
+	// $pasword=md5($_POST['password']);
 	$status=$_POST['status'];
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -36,7 +36,7 @@ if($proses=='update'){
             	$file='../public/img/'.$fotoawal;
             	unlink($file);
                 move_uploaded_file($_FILES["foto"]["tmp_name"], "../public/img/" . $filename);
-				$cek_proses=$syntax->update("mstr_admin","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',username='$username',password='$pasword',foto='$foto',status='$status'","adm_id='$adm_id'");
+				$cek_proses=$syntax->update("mstr_admin","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',username='$username',foto='$foto',status='$status'","adm_id='$adm_id'");
 				if($cek_proses){
 					header('location: ' .base_url('admin/index.php?page=admin'));
 				}else{
@@ -47,7 +47,7 @@ if($proses=='update'){
         }
     } else{
                 
-		$cek_proses=$syntax->update("mstr_admin","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',username='$username',password='$pasword',status='$status'","adm_id='$adm_id'");
+		$cek_proses=$syntax->update("mstr_admin","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',username='$username',status='$status'","adm_id='$adm_id'");
 		if($cek_proses){
 			header('location: ' .base_url('admin/index.php?page=admin'));
 		}else{
@@ -56,24 +56,31 @@ if($proses=='update'){
     }
 }elseif($proses=='delete'){
 	$adm_id=$_GET['adm_id'];
-	$q = $syntax->view_kon("mstr_admin","adm_id='$adm_id'");
-    $r = $q->fetch_array();
-    $foto=$r['foto'];
-    $file="../public/img/$foto";
-    if(unlink($file)){
+	if ($adm_id !='adm1') {
+		$q = $syntax->view_kon("mstr_admin","adm_id='$adm_id'");
+		$r = $q->fetch_array();
+		$foto=$r['foto'];
+		$file="../public/img/$foto";
+		if(unlink($file)){
+				$cek_proses=$syntax->delete("mstr_admin","adm_id='$adm_id'");
+				if($cek_proses){
+					header('location: ' .base_url('admin/index.php?page=admin'));
+				}else{
+					echo "eror";
+				}
+		}else{
 			$cek_proses=$syntax->delete("mstr_admin","adm_id='$adm_id'");
 			if($cek_proses){
 				header('location: ' .base_url('admin/index.php?page=admin'));
 			}else{
 				echo "eror";
 			}
-	}else{
-		$cek_proses=$syntax->delete("mstr_admin","adm_id='$adm_id'");
-		if($cek_proses){
-			header('location: ' .base_url('admin/index.php?page=admin'));
-		}else{
-			echo "eror";
 		}
+	}else{
+		
+  		echo "<script>alert('Admin Utama tidak dapat dihapus')</script>";
+  		echo "<script>window.location.href='".base_url('admin/index.php?page=admin')."'</script>";
+		// header('location: ' .base_url('admin/index.php?page=admin'));
 	}
 }elseif($proses=='insert'){
 	$data=$syntax->view('mstr_admin ORDER by adm_id desc limit 1');
@@ -89,7 +96,7 @@ if($proses=='update'){
 	$telp=$_POST['telp'];
 	$email=$_POST['email'];
 	$alamat=$_POST['alamat'];
-	$username=md5($_POST['username']);
+	$username=$_POST['username'];
 	$pasword=md5($_POST['password']);
 	$status=2;
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){

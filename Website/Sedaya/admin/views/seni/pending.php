@@ -13,88 +13,166 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
-    <!-- Main content -->
-    <section class="content">
-          <div class="container-fluid">
+  <section class="content">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-              <!-- /.card-header -->
-            <div class="card">
+            <div class="card card-info">
               <div class="card-header">
-                <h1>Data Admin</h1>
-                <!-- <a href="<?=base_url("admin/index.php?page=admin/insert");?>"><button class="btn btn-success"><i class="fa fa-plus"></i> Add New</button></a></br> -->
+                <h3 class="card-title">Postingan baru</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped table-hover">
-                  <thead>
-                  <tr>
-                    <th>NO</th>
-                    <th>JUDUL</th>
-                    <th>KATEGORI</th>
-                    <th>JENIS</th>
-                    <th>KETERANGAN</th>
-                    <th>JANGKAUAN</th>
-                    <th>STATUS</th>
-                    <th class="text-center"><i class="fa fa-cogs aligh-center"></i></th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <?php $show=$syntax->view_field("seni.jns_id, seni.judul, seni.kategori, jenis.jenis, seni.keterangan, seni.jangkauan, seni.status","seni join mstr_user on seni.usr_id = mstr_user.usr_id JOIN jenis on seni.jns_id = jenis.jns_id where seni.status =0");
-                      $n=1;
-                      foreach ($show as $r) {
+                <div class="row">
+                  <?php
+                  $show=$syntax->view_field("seni.sn_id, mstr_user.nama, mstr_user.alamat, seni.judul, seni.gambar, seni.kategori, jenis.jenis, seni.keterangan, seni.jangkauan, seni.harga, seni.status","seni join mstr_user on seni.usr_id = mstr_user.usr_id join jenis on seni.jns_id = jenis.jns_id where seni.status=0 order by sn_id desc");
+                  $n=1;
+                  foreach ($show as $r) {
+                    $sn_id = $r['sn_id'];
+                    $nama = $r['nama'];
+                    $alamat = $r['alamat'];
+                    $judul = $r['judul'];
+                    $gambar = $r['gambar'];
+                    $kategori = $r['kategori'];
+                    $jenis = $r['jenis'];
+                    $keterangan = $r['keterangan'];
+                    $jangkauan = $r['jangkauan'];
+                    $harga = $r['harga'];
+                    $status = $r['status'];
                   ?>
-                  <tr>
-                    <td><?=$n++?></td>
-                    <td><?=$r["judul"]?></td>
-                    <td><?=$r["kategori"]?></td>
-                    <td><?=$r["jenis"]?></td>
-                    <td><?=substr($r["keterangan"],0,75)?></td>
-                    <td><?=$r["jangkauan"]?></td>
-                    <td>
-                    <?php
-                      if($r["status"]==0) {
-                        echo "<b class='text-warning'><i>Menunggu konfirmasi</i></b>";
-                      }elseif ($r["status"]==1) {
-                        echo "<b class='text-primary'><i>Siap</i></b>";
-                      }elseif ($r["status"]==2){
-                        echo "<b class='text-info'><i>Sedang dipesan</i></b>";
-                      }elseif ($r["status"]==3){
-                        echo "<b class='text-danger'><i>Di nonaktifkan</i></b>";
-                      }
-                    ?>
-                    </td>
-                    <td class="text-center">
-                        <a href="<?=base_url('admin/index.php?page=user/update&&jns_id='.$r['jns_id']);?>"><button class="btn btn-primary"><i class="fa fa-newspaper"></i></button></a>
-                        <a href="<?=base_url('admin/index.php?page=user/update&&jns_id='.$r['jns_id']);?>"><button class="btn btn-success"><i class="fa fa-check"></i></button></a>
-                        <a href="<?=base_url('admin/proses/user.php?proses=delete&&jns_id='.$r['jns_id']);?>" onclick="return confirm('nonaktifkan postingan?')"><button class="btn btn-danger"><i class="fa fa-times"></i></button></a>
-                    </td>
-                  </tr>
-                  <?php } ?>
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>NO</th>
-                    <th>NAMA</th>
-                    <th>JENIS KELAMIN</th>
-                    <th>TTL</th>
-                    <th>TELP</th>
-                    <th>EMAIL</th>
-                    <th>STATUS</th>
-                    <th class="text-center"><i class="fa fa-cogs aligh-center"></i></th>
-                  </tr>
-                  </tfoot>
-                </table>
+                  <div class="col-md-4 col-6">
+                    <div class="info-box position-relative p-3" >
+                      <!-- <div class="ribbon-wrapper ribbon-xl">
+                        <div class="ribbon bg-success">
+                          <?=$jenis?>
+                        </div>
+                      </div> -->
+                      <div class="row">
+                        <div class="col-md-6">
+                          <img src="<?=base_url('admin/public/img/seni/'.$gambar)?>" alt="" class="img-fluid img-thumbnail" style="max-height: 250px; max-width: 100%; display: block;"  srcset="">
+                        </div>
+                        <div class="col-md-6">
+                          <h3><?=$judul?></h3>
+                          <?=substr($keterangan,0,100)?>..
+                          <!-- <b>Jenis :</b> <?=$jenis?><br>
+                          <b>Harga :</b> Rp. <?=number_format($harga,2,".",",")?><br><br> -->
+                          <br><br>
+                          <div class="row">
+                          <div class="col-md-6"></div>
+                          <div class="col-md-6"><a class=" btn btn-secondary  btn-block" href="#" data-toggle="modal" data-target="#modal-lg" onclick="tampildata('<?=$sn_id?>','<?=$nama?>','<?=$alamat?>','<?=$judul?>','<?=base_url('admin/public/img/seni/'.$gambar)?>','<?=$kategori?>',
+                          '<?=$jenis?>','<?=$keterangan?>','<?=$jangkauan?>','<?=number_format($harga,2,".",",")?>','<?=$status?>')">Detail
+                          </a></div></div>
+                        </div>
+                      </div>
+                      <!-- <b>Deskripsi :</b> <br>
+                      <?=substr($keterangan,0,100)?>.. -->
+                    </div>
+                  </div>
+                  <?php
+                  if ($n % 3 ==0) {
+                    echo'</div><div class="row">';
+                  }
+                  $n++;}
+                  ?>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
+          <div class="modal fade" id="modal-lg">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content bg-info">
+                <div class="modal-header">
+                  <h4 class="modal-title">Detail</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table>
+                    <tr >
+                      <td rowspan="7"><img src="<?=base_url('admin/public/img/seni/default.png')?>" id="foto" width="300px" class="img-fluid" height="100px" ></td>
+                      <td rowspan="7"> <div class="col-md-1"></div></td>
+                      <td rowspan="7"> <div class="col-md-1"></div></td>
+                    </tr>
+                    <tr>
+                      <td><b>Oleh </b></td>
+                      <td> : <span id="nama"></span></td>
+                    </tr>
+                    <tr>
+                      <td><b>Judul </b></td>
+                      <td> : <span id="judul"></span></td>
+                    </tr>
+                    <tr>
+                      <td><b>Kategori</b></td>
+                      <td> : <span id="kategori"></span></td>
+                    </tr>
+                    <tr>
+                      <td><b>Jenis</b></td>
+                      <td> : <span id="jenis"></span></td>
+                    </tr>
+                    <tr>
+                      <td><b>harga </b></td>
+                      <td> : Rp. <span id="harga"></span></td>
+                    </tr>
+                    <tr>
+                      <td><b>jangkauan </b></td>
+                      <td> : <span id="jangkauan"></span></td>
+                    </tr>
+                  </table>
+                    <br>
+                  <table>
+                    <tr>
+                      <td><div class="col-md-1"></div></td>
+                      <td><b>Deskripsi: </b></td>
+                    </tr>
+                    <tr>
+                      <td><div class="col-md-1"></div></td>
+                      <td><span id="keterangan"></span></td>
+                    </tr>
+                    <tr>
+                      <td><div class="col-md-1"></div></td>
+                      <td><b>Alamat: </b></td>
+                    </tr>
+                    <tr>
+                      <td><div class="col-md-1"></div></td>
+                      <td><span id="alamat"></span></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                  <form action="<?=base_url('admin/proses/seni.php?proses=konfirmasi');?>" method="POST">
+                  <input type="hidden" name="sn_id" id="sn_id" value="sn_id">
+                  <input type="submit" class="btn btn-danger" name="dec" value="Decline">
+                  <input type="submit" class="btn btn-success" name="acc" value="Accept">
+                  </form>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+          <!-- /.modal -->
           <!-- /.col -->
         </div>
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
+    <script>
+      function tampildata(sn_id,nama,alamat,judul,gambar,kategori,jenis,keterangan,jangkauan,harga,status) {
+      $('#sn_id').attr('value', sn_id);
+      $('#nama').html(nama);
+      $('#alamat').html(alamat);
+      $('#judul').html(judul);
+      $('#kategori').html(kategori);
+      $('#jenis').html(jenis);
+      $('#foto').attr('src', gambar);
+      $('#keterangan').html(keterangan);
+      $('#jangkauan').html(jangkauan);
+      $('#harga').html(harga);
+      $('#status').html(status);
+      }
+    </script>

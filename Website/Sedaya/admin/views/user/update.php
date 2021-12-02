@@ -93,12 +93,12 @@
 							<input type="text" class="form-control" placeholder="Username" name="username" value="<?=$r['username']?>" required>
 							</div>
 						</div>
-						<div class="form-group row">
+						<!-- <div class="form-group row">
 							<label class="col-sm-2 col-form-label">Password *</label>
 							<div class="col-sm-10">
 							<input type="password" class="form-control" placeholder="Password" name="password" value="<?=$r['password']?>" required>
 							</div>
-						</div>
+						</div> -->
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Photo *</label>
 							<div class="col-sm-10">
