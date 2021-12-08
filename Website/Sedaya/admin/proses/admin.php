@@ -87,8 +87,7 @@ if($proses=='update'){
 	foreach ($data as $r){
 		$get_id=$r['adm_id'];
 	}
-	$id=substr($get_id,3);
-	$adm_id="adm".$id + 1;
+	$adm_id=$get_id + 1;
 	$nama=$_POST["nama"];
 	$jk=$_POST['jk'];
 	$tmp_lahir=$_POST['tmp_lahir'];

@@ -80,8 +80,7 @@ if($proses=='update'){
 	foreach ($data as $r){
 		$get_id=$r['usr_id'];
 	}
-	$id=substr($get_id,3);
-	$usr_id="usr".$id + 1;
+	$usr_id=$get_id + 1;
 	$nama=$_POST["nama"];
 	$jk=$_POST['jk'];
 	$tmp_lahir=$_POST['tmp_lahir'];
@@ -126,5 +125,53 @@ if($proses=='update'){
         }
     } else{
         echo "Error: " . $_FILES["foto"]["error"];
+    }
+}elseif ($proses=='register') {
+	$data=$syntax->view('mstr_user ORDER by usr_id desc limit 1');
+	foreach ($data as $r){
+		$get_id=$r['usr_id'];
+	}
+	$usr_id=$get_id + 1;
+	$nama=$_POST["nama"];
+	$jk=$_POST["jk"];
+	$tmp_lahir=$_POST["tmp_lahir"];
+	$tgl_lahir=$_POST["tgl_lahir"];
+	$telp=$_POST["telp"];
+	$alamat=$_POST["alamat"];
+	$email=$_POST['email'];
+	$username=$_POST['username'];
+	$pasword=md5($_POST['password']);
+	$cek_proses=$syntax->insert("mstr_user","usr_id,nama,jk,tmp_lahir,tgl_lahir,telp,alamat,email,username,password,status",
+	"'$usr_id','$nama','$jk','$tmp_lahir','$tgl_lahir','$telp','$alamat','$email','$username','$pasword','1'");
+	if($cek_proses){
+		$cek_login = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
+		$num = mysqli_num_rows($cek_login);
+		$row = $cek_login->fetch_array();
+		session_start();
+        $_SESSION['login-user'] = $row;
+		header('location: ' .base_url(''));
+	}else{
+		echo "eror";
+	}
+}elseif ($proses=='login') {
+	$user = $_POST['username'];
+    $pass = md5($_POST['password']);
+    if (!empty(trim($user)) && !empty(trim($pass))) {
+    $cek_login = $syntax->view_kon("mstr_user","username='$user' && password='$pass'");
+    $num = mysqli_num_rows($cek_login);
+    $row = $cek_login->fetch_array();
+        if ($num != 0) {
+            if ($row['username']==$user && $$row['password']= $pass) {
+                session_start();
+                $_SESSION['login-user'] = $row;
+			header('location: ' .base_url(''));
+            }else {
+                echo "<script>alert('Username atau Password salah!!')</script>";
+                echo "<script>window.location.href='".base_url('index.php?page=user-login')."'</script>";
+            }
+        }else{
+            echo "<script>alert('Username tidak ditemukan!')</script>";
+            echo "<script>window.location.href='".base_url('index.php?page=user-login')."'</script>";
+        }
     }
 }?>

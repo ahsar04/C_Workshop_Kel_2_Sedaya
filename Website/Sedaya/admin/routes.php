@@ -34,6 +34,8 @@
 			include 'views/user/insert.php';
 		}elseif($page == 'user/update'){
 			include 'views/user/update.php';
+		}elseif($page == 'feedback'){
+			include 'views/feedback/index.php';
 		}else {
 			include 'error_404.php';
 		}

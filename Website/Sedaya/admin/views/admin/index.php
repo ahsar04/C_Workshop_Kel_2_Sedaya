@@ -41,7 +41,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <?php $show=$syntax->view("mstr_admin");
+                  <?php $show=$syntax->view("mstr_admin order by adm_id desc");
                       $n=1;
                       foreach ($show as $r) {
                         $foto = $r['foto'];

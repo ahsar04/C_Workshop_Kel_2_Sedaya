@@ -1,8 +1,8 @@
 <?php
 include "admin/syntax.php";
 session_start();
-?>
 
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,7 +20,7 @@ session_start();
     <meta name="author" content="" />
     <link rel="shortcut icon" href="images/favicon.png" type="" />
 
-    <title>Sedaya | Expose Your Art</title>
+    <title>Feane</title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -47,37 +47,18 @@ session_start();
     <link href="css/responsive.css" rel="stylesheet" />
   </head>
 
-  <body>
-    <?php
-    if (isset($_GET['page'])) {
-      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni') {
-        
-      }else{
-        echo '<div class="hero_area">
+  <body class="sub_page">
+    <div class="hero_area">
       <div class="bg-box">
-      </div>';
-      }
-    }else{
-      echo '<div class="hero_area">
-      <div class="bg-box">
-      </div>';
-    }
-    ?>
+        <!-- <img src="images/hero-bg.jpg" alt=""> -->
+      </div>
       <!-- header section strats -->
-      <header <?php if (isset($_GET['page'])) {
-      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni') {
-        echo 'class="header_section menu-bg"';
-      }else{
-        echo 'id="menu" class="header_section fixed-top "';
-      }
-    }else{
-        echo 'id="menu" class="header_section fixed-top "';
-      }?> >
+      <header class="header_section">
         <div class="container">
           <nav
             class="navbar navbar-expand-lg custom_nav-container container-fluid"
           >
-            <a class="navbar-brand" href="<?=base_url('')?>">
+            <a class="navbar-brand" href="index.html">
               <span> Sedaya </span>
             </a>
 
@@ -94,10 +75,7 @@ session_start();
             </button>
 
             <div class="collapse navbar-collapse menu-center" id="navbarSupportedContent">
-              <?php
-              echo '<ul class="navbar-nav mx-auto">';
-              if (!isset($_GET['page'])) {
-                echo '
+              <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                   <a class="nav-link" href="#home">Home </a>
                 </li>
@@ -109,30 +87,77 @@ session_start();
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#feedback">Feedback</a>
-                </li>';
-              }
-              echo '</ul>';
-              if (empty($_SESSION['login-user'])) {
-                echo '<div class="user_option">
-                <a href="'.base_url('index.php?page=user-login').'" class="order_online"> Login </a></div>';
-              }else{
-                echo '<div class="user_option">
+                </li>
+              </ul>
+              <div class="user_option">
                 <a href="" class="user_link">
-                  <i class="fa fa-user" aria-hidden="true"></i>  '.$_SESSION['login-user']['nama'].'
+                  <i class="fa fa-user" aria-hidden="true"></i>
                 </a>
-                <a href="logout.php" class="user_link">
-                  <i class="fa fa-sign-out-alt" aria-hidden="true"></i>  Logout
-                </a></div>';
-              }?>
-              
+                <a href="" class="order_online"> Login </a>
+              </div>
             </div>
           </nav>
         </div>
       </header>
       <!-- end header section -->
-      <!-- slider section -->
-      
-      <?php include 'routes.php'?>
+    </div>
+
+    <!-- book section -->
+    <section class="book_section">
+      <div class="container">
+        <div class="row">
+        <div class="col-md-3"></div>
+        <div class="heading_container">
+          <h2>Register</h2>
+        </div></div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <div class="form_container">
+              <form action="<?=base_url('admin/proses/user.php?proses=register');?>" method="POST">
+                <div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="nama"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Your Email"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    placeholder="Username"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="btn_box">
+                  <button type="submit" name="register">Register</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br /><br /><br /><br /><br /><br><br>
+    <!-- end book section -->
 
     <!-- footer section -->
     <footer class="footer_section">
@@ -199,6 +224,7 @@ session_start();
     </footer>
     <!-- footer section -->
 
+
     <!-- jQery -->
     <script src="js/jquery-3.4.1.min.js"></script>
     <!-- popper js -->
@@ -220,61 +246,5 @@ session_start();
     <!-- Google Map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
     <!-- End Google Map -->
-    <script>
-      window.onscroll = function () {
-        scrollFunction();
-      };
-      function scrollFunction() {
-        if (
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20
-        ) {
-          $("#menu").attr("class", "header_section fixed-top menu-bg");
-        } else {
-          $("#menu").attr("class", "header_section fixed-top");
-        }
-      }
-    </script>
-    <script>
-  $(document).ready(function () {
-    $(document).on("scroll", onScroll);
-      
-      //smoothscroll
-      $('a[href^="#"]').on('click', function (e) {
-          e.preventDefault();
-          $(document).off("scroll");
-          
-          $('li').each(function () {
-              $(this).removeClass('active');
-          })
-          $(this).addClass('active');
-        
-          var target = this.hash,
-              menu = target;
-          $target = $(target);
-          $('html, body').stop().animate({
-              'scrollTop': $target.offset().top+2
-          }, 500, 'swing', function () {
-              window.location.hash = target;
-              $(document).on("scroll", onScroll);
-          });
-      });
-  });
-
-  function onScroll(event){
-      var scrollPos = $(document).scrollTop();
-      $('.menu-center a').each(function () {
-          var currLink = $(this);
-          var refElement = $(currLink.attr("href"));
-          if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-              $('.menu-center ul li').removeClass("active");
-              currLink.addClass("active");
-          }
-          else{
-              currLink.removeClass("active");
-          }
-      });
-  }
-    </script>
   </body>
 </html>

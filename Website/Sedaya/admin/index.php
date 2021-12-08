@@ -15,7 +15,7 @@ if (!isset($_GET['page'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sedaya | Expose Your Art</title>
+  <title>Sedaya | <?=$page?></title>
   <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -124,6 +124,12 @@ if (!isset($_GET['page'])) {
               <p>Dashboard</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?=base_url('admin/index.php?page=transaksi');?>" class="nav-link <?php if ($page=='transaksi') { echo "active";}?>">
+              <i class="nav-icon fa fa-cash-register"></i>
+              <p>Transaksi</p>
+            </a>
+          </li>
           <li class="nav-item <?php if ($page=='post-pending'||$page=='post-active'||$page=='post-suspend') { echo "menu-is-opening menu-open";}?>">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-mail-bulk"></i>
@@ -175,6 +181,12 @@ if (!isset($_GET['page'])) {
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="<?=base_url('admin/index.php?page=feedback');?>" class="nav-link <?php if ($page=='feedback') { echo "active";}?>">
+              <i class="nav-icon fas fa-comments"></i>
+              <p>Feedback</p>
+            </a>
           </li>
           <li class="nav-item">
             <a href="<?=base_url('admin/logout.php');?>" class="nav-link">

@@ -1,5 +1,5 @@
 <?php
-include "../../../admin/syntax.php";
+include "../admin/syntax.php";
 class login{
     public function login($username, $password)
     {

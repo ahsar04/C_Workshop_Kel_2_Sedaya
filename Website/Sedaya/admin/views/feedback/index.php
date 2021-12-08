@@ -3,12 +3,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data User</h1>
+            <h1>Kritik & Saran</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Master</a></li>
-              <li class="breadcrumb-item active">User</li>
+              <li class="breadcrumb-item"><a href="#">Kritik & Saran</a></li>
             </ol>
           </div>
         </div>
@@ -22,8 +21,7 @@
           <div class="col-12">
               <!-- /.card-header -->
             <div class="card">
-              <div class="card-header">
-                <a href="<?=base_url("admin/index.php?page=user/insert");?>"><button class="btn btn-success"><i class="fa fa-plus"></i> Add New</button></a></br>
+              <div class="card-header bg-info">
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -32,46 +30,27 @@
                   <tr>
                     <th>NO</th>
                     <th>NAMA</th>
-                    <th>JENIS KELAMIN</th>
-                    <th>TTL</th>
-                    <th>TELP</th>
                     <th>EMAIL</th>
+                    <th>Kritik & Saran</th>
                     <th class="text-center"><i class="fa fa-cogs aligh-center"></i></th>
                   </tr>
                   </thead>
                   <tbody>
-                  <?php $show=$syntax->view("mstr_user order by usr_id desc");
+                  <?php $show=$syntax->view("feedback");
                       $n=1;
                       foreach ($show as $r) {
-                        $foto = $r['foto'];
+                        $id=$r['id'];
                         $nama = $r['nama'];
-                        $jk = $r['jk'];
-                        $tmp_lahir = $r['tmp_lahir'];
-                        $tgl_lahir = $r['tgl_lahir'];
-                        $telp = $r['telp'];
                         $email = $r['email'];
-                        $status = $r['status'];
-                        $alamat = $r['alamat'];
+                        $kritik_saran = $r['kritik_saran'];
                   ?>
                   <tr>
                     <td><?=$n++?></td>
                     <td><?=$nama?></td>
-                    <td>
-                      <?php
-                      if ($jk=="L") {
-                        echo "Laki-laki";
-                      }elseif($jk=="P"){
-                        echo "Perempuan";
-                      }
-                      ?>
-                    </td>
-                    <td><?=$tmp_lahir?>, <?=$tgl_lahir?></td>
-                    <td><?=$telp?></td>
                     <td><?=$email?></td>
+                    <td><?=$kritik_saran?></td>
                     <td class="text-center">
-                        <button data-toggle="modal" data-target="#modal-lg" onclick="tampildata('<?=base_url('admin/public/img/user/'.$foto)?>','<?=$nama?>','<?=$jk?>','<?=$tmp_lahir?>','<?=$tgl_lahir?>','<?=$telp?>','<?=$email?>','<?=$status?>','<?=$alamat?>')" class="btn btn-secondary"><i class="fa fa-newspaper"></i></button>
-                        <a href="<?=base_url('admin/index.php?page=user/update&&usr_id='.$r['usr_id']);?>"><button class="btn btn-success"><i class="fa fa-edit"></i></button></a>
-                        <a href="<?=base_url('admin/proses/user.php?proses=delete&&usr_id='.$r['usr_id']);?>" onclick="return confirm('Yakin Hapus')"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                        <a href="<?=base_url('admin/proses/feedback.php?proses=delete&&id='.$id);?>" onclick="return confirm('Yakin Hapus')"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
                     </td>
                   </tr>
                   <?php } ?>
@@ -80,10 +59,8 @@
                   <tr>
                     <th>NO</th>
                     <th>NAMA</th>
-                    <th>JENIS KELAMIN</th>
-                    <th>TTL</th>
-                    <th>TELP</th>
                     <th>EMAIL</th>
+                    <th>Kritik & Saran</th>
                     <th class="text-center"><i class="fa fa-cogs aligh-center"></i></th>
                   </tr>
                   </tfoot>

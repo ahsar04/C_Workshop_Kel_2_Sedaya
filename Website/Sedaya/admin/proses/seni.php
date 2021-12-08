@@ -80,8 +80,7 @@ if($proses=='update'){
 	foreach ($data as $r){
 		$get_id=$r['sn_id'];
 	}
-	$id=substr($get_id,3);
-	$sn_id="usr".$id + 1;
+	$sn_id=$get_id + 1;
 	$nama=$_POST["nama"];
 	$jk=$_POST['jk'];
 	$tmp_lahir=$_POST['tmp_lahir'];
