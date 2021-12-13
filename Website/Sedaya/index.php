@@ -1,6 +1,11 @@
 <?php
 include "admin/syntax.php";
 session_start();
+// midtrans
+require_once(dirname(__FILE__).'/vendor/autoload.php');
+Veritrans_Config::$serverKey = "SB-Mid-server-PgZwAoO-cUY8LNP8kCmB7eJt";
+Veritrans_Config::$isSanitized = true;
+Veritrans_Config::$is3ds = true;
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +23,7 @@ session_start();
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="images/favicon.png" type="" />
+    <!-- <link rel="shortcut icon" href="images/favicon.png" type="" /> -->
 
     <title>Sedaya | Expose Your Art</title>
 
@@ -39,18 +44,24 @@ session_start();
       crossorigin="anonymous"
     />
     <!-- font awesome style -->
+    <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
     <link href="css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet" />
+    
+    <!-- DataTables -->
+    <link rel="stylesheet" href="admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   </head>
 
   <body>
     <?php
     if (isset($_GET['page'])) {
-      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni') {
+      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile') {
         
       }else{
         echo '<div class="hero_area">
@@ -65,7 +76,7 @@ session_start();
     ?>
       <!-- header section strats -->
       <header <?php if (isset($_GET['page'])) {
-      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni') {
+      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile') {
         echo 'class="header_section menu-bg"';
       }else{
         echo 'id="menu" class="header_section fixed-top "';
@@ -116,14 +127,29 @@ session_start();
                 echo '<div class="user_option">
                 <a href="'.base_url('index.php?page=user-login').'" class="order_online"> Login </a></div>';
               }else{
-                echo '<div class="user_option">
-                <a href="" class="user_link">
-                  <i class="fa fa-user" aria-hidden="true"></i>  '.$_SESSION['login-user']['nama'].'
+                if (isset($_GET['page'])) {
+                  if ($_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile') {
+                    echo '<div class="user_option">
+                    <a href="'.base_url('index.php?page=galeri-seni').'" class="user_link">  Galery
+                </a>';
+                  }else{
+                    echo'<div class="user_option">';
+                  }
+                }else{
+                    echo'<div class="user_option">';
+                }
+                echo '
+                <a href="'.base_url("index.php?page=chart").'" class="user_link">
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+                </a>
+                <a href="'.base_url("index.php?page=profile").'" class="user_link">
+                  <i class="fa fa-user" aria-hidden="true"></i> 
                 </a>
                 <a href="logout.php" class="user_link">
-                  <i class="fa fa-sign-out-alt" aria-hidden="true"></i>  Logout
+                Logout
                 </a></div>';
-              }?>
+              }
+              ?>
               
             </div>
           </nav>
@@ -220,7 +246,28 @@ session_start();
     <!-- Google Map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
     <!-- End Google Map -->
+    <!-- datatables -->
+    <script src="admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script>
+      
+      $(function () {
+        $("#example1").DataTable({
+          "responsive": true, "lengthChange": false, "autoWidth": false
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      });
+      $(function () {
+        $("#example2").DataTable({
+          "responsive": true, "lengthChange": false, "autoWidth": false
+        }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+      });
       window.onscroll = function () {
         scrollFunction();
       };
@@ -275,6 +322,22 @@ session_start();
           }
       });
   }
+    </script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-5PYAmTbvFmvFrI1d"></script>
+    <script type="text/javascript">
+      document.getElementById('pay-button').onclick = function(){
+        snap.pay('<?=$snapToken?>', {
+          onSuccess: function(result){
+            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 1);
+          },
+          onPending: function(result){
+            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 1);
+          },
+          onError: function(result){
+            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 1);
+          }
+        });
+      };
     </script>
   </body>
 </html>

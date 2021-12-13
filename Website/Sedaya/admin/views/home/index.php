@@ -28,7 +28,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Transaksi berlangsung</span>
                             <span class="info-box-number">
-                            <?php $show=$syntax->view("transaksi where status=0");
+                            <?php $show=$syntax->view("transaksi where t_status=0");
                                 echo mysqli_num_rows($show);
                             ?></span>
                         </div>
@@ -80,7 +80,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Transaksi selesai</span>
                             <span class="info-box-number">
-                            <?php $show=$syntax->view("transaksi where status=1");
+                            <?php $show=$syntax->view("transaksi where t_status=1");
                                 echo mysqli_num_rows($show);
                             ?></span>
                         </div>

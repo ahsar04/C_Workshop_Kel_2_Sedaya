@@ -259,15 +259,21 @@
                     <h5><?=$r['judul']?></h5>
                     <p>
                       <?php 
-                      echo substr($r['keterangan'],0,115);
-                      if (strlen($r['keterangan'])>115) {
+                      echo substr($r['keterangan'],0,100);
+                      if (strlen($r['keterangan'])>100) {
                         echo "...";
                       }
                       ?>
                     </p>
                     <div class="options">
                       <h6>Rp. <?=number_format($r['harga'],2,".",",")?></h6>
-                      <a href="">
+                      <a href="<?php
+                                if (empty($_SESSION['login-user'])) {
+                                  echo base_url('index.php?page=user-login');
+                                }else{
+                                  echo base_url('index.php?page=detail-seni&&sn_id='.$r['sn_id']);
+                                }
+                                ?>">
                         <svg
                           version="1.1"
                           id="Capa_1"

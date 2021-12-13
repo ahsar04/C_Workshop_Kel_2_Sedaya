@@ -121,7 +121,7 @@ if (!isset($_GET['page'])) {
           <li class="nav-item">
             <a href="<?=base_url('admin/index.php?page=home');?>" class="nav-link <?php if ($page=='home') { echo "active";}?>">
               <i class="nav-icon fas fa-home"></i>
-              <p>Dashboard</p>
+              <p>Home</p>
             </a>
           </li>
           <li class="nav-item">
@@ -130,7 +130,7 @@ if (!isset($_GET['page'])) {
               <p>Transaksi</p>
             </a>
           </li>
-          <li class="nav-item <?php if ($page=='post-pending'||$page=='post-active'||$page=='post-suspend') { echo "menu-is-opening menu-open";}?>">
+          <li class="nav-item <?php if ($page=='post-pending'||$page=='post-active'||$page=='post-suspend'||$page=='jenis-seni'||$page=='jenis-seni/insert'||$page=='jenis-seni/update') { echo "menu-is-opening menu-open";}?>">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-mail-bulk"></i>
               <p>Post &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
@@ -151,9 +151,15 @@ if (!isset($_GET['page'])) {
                   <p id="post-active"></p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?=base_url('admin/index.php?page=jenis-seni');?>" class="nav-link <?php if ($page=='jenis-seni'||$page=='jenis-seni/insert'||$page=='jenis-seni/update') { echo "active";}?>">
+                  <i class="fa fa-palette nav-icon"></i>
+                  <p>Jenis Seni</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item <?php if ($page=='admin'||$page=='admin/insert'||$page=='admin/update'||$page=='user'||$page=='user/insert'||$page=='user/update'||$page=='jenis-seni'||$page=='jenis-seni/insert'||$page=='jenis-seni/update') { echo "menu-is-opening menu-open";}?>">
+          <li class="nav-item <?php if ($page=='seniman'||$page=='seniman/insert'||$page=='seniman/update'||$page=='admin'||$page=='admin/insert'||$page=='admin/update'||$page=='user'||$page=='user/insert'||$page=='user/update') { echo "menu-is-opening menu-open";}?>">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -175,9 +181,9 @@ if (!isset($_GET['page'])) {
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=base_url('admin/index.php?page=jenis-seni');?>" class="nav-link <?php if ($page=='jenis-seni'||$page=='jenis-seni/insert'||$page=='jenis-seni/update') { echo "active";}?>">
-                  <i class="fa fa-palette nav-icon"></i>
-                  <p>Jenis Seni</p>
+                <a href="<?=base_url('admin/index.php?page=seniman');?>" class="nav-link <?php if ($page=='seniman'||$page=='seniman/insert'||$page=='seniman/update') { echo "active";}?>">
+                  <i class="fa fa-users nav-icon"></i>
+                  <p>Seniman</p>
                 </a>
               </li>
             </ul>
@@ -234,12 +240,12 @@ if (!isset($_GET['page'])) {
 <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="plugins/jszip/jszip.min.js"></script>
-<script src="plugins/pdfmake/pdfmake.min.js"></script>
-<script src="plugins/pdfmake/vfs_fonts.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
 <!-- SweetAlert2 -->
 <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- flexdatalist -->
@@ -447,9 +453,9 @@ if (!isset($_GET['page'])) {
             success: function (data) {
             $('#new-post').html(data);
             },
-            error: function(output){
-            alert("fail");
-            }
+            // error: function(output){
+            // alert("fail");
+            // }
       });
       $.ajax({
             type: "POST",
@@ -459,9 +465,9 @@ if (!isset($_GET['page'])) {
             success: function (data) {
             $('#new-post2').html(data);
             },
-            error: function(output){
-            alert("fail");
-            }
+            // error: function(output){
+            // alert("fail");
+            // }
       });
       $.ajax({
             type: "POST",
@@ -471,9 +477,9 @@ if (!isset($_GET['page'])) {
             success: function (data) {
             $('#post-active').html(data);
             },
-            error: function(output){
-            alert("fail");
-            }
+            // error: function(output){
+            // alert("fail");
+            // }
       });
       $.ajax({
             type: "POST",
@@ -483,9 +489,9 @@ if (!isset($_GET['page'])) {
             success: function (data) {
             $('#new').html(data);
             },
-            error: function(output){
-            alert("fail");
-            }
+            // error: function(output){
+            // alert("fail");
+            // }
       });
     setTimeout(getData, 3000);
   }

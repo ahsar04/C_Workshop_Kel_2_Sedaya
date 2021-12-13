@@ -9,9 +9,21 @@ if(isset($_GET['page'])){
 			}else{
 				include 'pages/user-login.php';
 			}
-		} elseif($page == 'detail-seni'){
+		}elseif($page == 'detail-seni'){
 			if (!empty($_SESSION['login-user'])) {
 			include 'pages/detail-seni.php';
+			}else{
+				include 'pages/user-login.php';
+			}
+		}elseif($page == 'chart'){
+			if (!empty($_SESSION['login-user'])) {
+			include 'pages/chart.php';
+			}else{
+				include 'pages/user-login.php';
+			}
+		}elseif($page == 'profile'){
+			if (!empty($_SESSION['login-user'])) {
+			include 'pages/profile.php';
 			}else{
 				include 'pages/user-login.php';
 			}

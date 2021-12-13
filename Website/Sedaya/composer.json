@@ -1,5 +1,15 @@
 {
-    "require": {
-        "phpunit/phpunit": "^9.5"
+  "name": "sedaya/payment",
+  "description": "sedaya payment gateaway",
+  "type": "project",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "saifur",
+      "email": "asrsaif04@gmail.com"
     }
+  ],
+  "require": {
+    "veritrans/veritrans-php": "^1.2"
+  }
 }

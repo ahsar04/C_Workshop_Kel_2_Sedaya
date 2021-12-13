@@ -17,6 +17,9 @@ body {
 .padding {
   padding: 75px 0;
 }
+.padding-top {
+  padding: 75px 0;
+}
 /* .layout_padding {
   padding: 75px 0;
 }
@@ -146,17 +149,62 @@ a:focus {
   }
 }
 .bg-box {
-  background: linear-gradient(
-    60deg,
-    rgba(66, 43, 114, 1) 25%,
-    rgba(38, 109, 152, 1) 75%,
-    rgba(60, 178, 154, 1) 100%
-  );
+  background: linear-gradient(31deg, #422b72, #263798, #3c7db2, #3cb29a);
+  background-size: 150% 150%;
+
+  -webkit-animation: AnimationName 8s ease infinite;
+  -moz-animation: AnimationName 8s ease infinite;
+  -o-animation: AnimationName 8s ease infinite;
+  animation: AnimationName 8s ease infinite;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 76%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 76%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 76%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 76%;
+  }
+}
+@-o-keyframes AnimationName {
+  0% {
+    background-position: 0% 76%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 76%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 76%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 76%;
+  }
 }
 .bg-gal {
   background: linear-gradient(
@@ -239,7 +287,7 @@ a:focus {
 
 .custom_nav-container .navbar-nav .nav-item .nav-link:hover,
 .custom_nav-container .navbar-nav .nav-item .nav-link.active {
-  color: #3cb29a;
+  color: #62bba9;
 }
 
 .custom_nav-container .nav_search-btn {

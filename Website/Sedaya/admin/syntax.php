@@ -35,7 +35,7 @@ date_default_timezone_set('Asia/Jakarta');
 	}
 
 	function base_url($url){
-		$base_url = 'http://localhost/Sedaya/'.$url;
+		$base_url = 'http://localhost/sedaya/'.$url;
 		return $base_url;
 	}
 

@@ -25,11 +25,11 @@
               <div class="card-body">
                 <div class="row">
                   <?php
-                  $show=$syntax->view_field("seni.sn_id, mstr_user.nama, mstr_user.alamat, seni.judul, seni.gambar, seni.kategori, jenis.jenis, seni.keterangan, seni.jangkauan, seni.harga, seni.status","seni join mstr_user on seni.usr_id = mstr_user.usr_id join jenis on seni.jns_id = jenis.jns_id where seni.status=0 order by sn_id desc");
+                  $show=$syntax->view_field("seni.sn_id, mstr_seniman.nama_snm, mstr_seniman.alamat, seni.judul, seni.gambar, seni.kategori, jenis.jenis, seni.keterangan, seni.jangkauan, seni.harga, seni.status","seni join mstr_seniman on seni.snm_id = mstr_seniman.snm_id join jenis on seni.jns_id = jenis.jns_id where seni.status=0 order by sn_id desc");
                   $n=1;
                   foreach ($show as $r) {
                     $sn_id = $r['sn_id'];
-                    $nama = $r['nama'];
+                    $nama = $r['nama_snm'];
                     $alamat = $r['alamat'];
                     $judul = $r['judul'];
                     $gambar = $r['gambar'];
