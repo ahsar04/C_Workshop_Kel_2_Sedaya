@@ -23,9 +23,9 @@ Veritrans_Config::$is3ds = true;
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <!-- <link rel="shortcut icon" href="images/favicon.png" type="" /> -->
+    <link rel="shortcut icon" href="images/favicon.png" type="" />
 
-    <title>Sedaya | Expose Your Art</title>
+    <title>Sedaya | Explore Your Art</title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -170,15 +170,15 @@ Veritrans_Config::$is3ds = true;
               <div class="contact_link_box">
                 <a href="">
                   <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  <span> Location </span>
+                  <span> Sumbersari, Jember - Jawa Timur </span>
                 </a>
                 <a href="">
                   <i class="fa fa-phone" aria-hidden="true"></i>
-                  <span> Call +62-8221-4100-363 </span>
+                  <span> Call +62 822-1410-0363 </span>
                 </a>
                 <a href="">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <span> Sedaya@gmail.com </span>
+                  <span> sedayadev@gmail.com </span>
                 </a>
               </div>
             </div>
@@ -187,7 +187,7 @@ Veritrans_Config::$is3ds = true;
             <div class="footer_detail">
               <a href="" class="footer-logo"> Sedaya </a>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, sapiente amet earum asperiores veniam eaque perferendis. Magni hic nesciunt repudiandae.
+              Sedaya (Seni lan Budaya) | Explore Your Art Melestarikan keberagaman Seni Indonesia, memaksimalkan potensi pegiat seni nusantara dan memudahkan para penikmat seni
               </p>
               <div class="footer_social">
                 <a href="#">
@@ -210,8 +210,8 @@ Veritrans_Config::$is3ds = true;
           </div>
           <div class="col-md-4 footer-col">
             <h4>Opening Hours</h4>
-            <p>Everyday</p>
-            <p>10.00 Am -10.00 Pm</p>
+            <p>Senin - Jum'at</p>
+            <p>10.00 Am -05.00 Pm</p>
           </div>
         </div>
         <div class="footer-info">

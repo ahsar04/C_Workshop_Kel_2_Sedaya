@@ -371,11 +371,12 @@
                 <h2>We Are Sedaya</h2>
               </div>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos officia nostrum, 
-                dolores alias inventore labore laudantium hic, odio illum recusandae nesciunt 
-                doloremque deserunt quod, quos velit adipisci aspernatur numquam expedita quaerat 
-                doloribus. Amet, libero! Tenetur asperiores distinctio consequatur incidunt, 
-                sed quis. Cumque error voluptatum natus saepe quis nam nemo facere.
+              Anda pelaku seni bingung bagaimana cara usaha seni kalian dapat sampai ke 
+                masyarakat luas? Atau anda seorang penikmat seni yang bingung mencari kesenian
+                yang cocok dan sesuai kebutuhan anda? Kini telah hadir Sedaya!
+                Aplikasi Sedaya merupakan aplikasi yang berfokus untuk mengenalkan kebudayaan Indonesia,
+                serta menjembatani antar pelaku seni dan penikmat seni. Mari bergabung bersama kami
+                dengan mencoba Aplikasi Sedaya yang sudah tersedia versi Mobile.
               </p>
               <a href=""> Download now </a>
             </div>
@@ -444,29 +445,29 @@
             <div class="item">
               <div class="box">
                 <div class="detail-box">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam
+                <p>
+                    Dengan adanya Sedaya ini saya selaku penikmat seni sangat terbantu
+                    dalam hal mencari referensi bahkan melakukan transaksi seni yang
+                    saya butuhkan tanpa repot-repot langsung survei ke lokasi
                   </p>
-                  <h6>A Saifur R</h6>
-                  <p>Lorem, ipsum.</p>
+                  <h6>Ardyas Setya</h6>
+                  <p>Penikmat seni</p>
                 </div>
                 <div class="img-box">
-                  <img src="images/client.jpg" height="110px" width="110px" alt="" class="box-img" />
+                  <img src="images/client3.jpg" height="110px" width="110px" alt="" class="box-img" />
                 </div>
               </div>
             </div>
             <div class="item">
               <div class="box">
                 <div class="detail-box">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam
+                <p>
+                    Sangat bermanfaat sekali dan menjawab permasalahan di kalangan
+                    pegiat seni yang gelisah pada pandemi ini menjadi jarang tampil, semoga
+                     para pegiat seni dapat promosi secara maksimal
                   </p>
-                  <h6>Saifur</h6>
-                  <p>Lorem, ipsum.</p>
+                  <h6>Dyah Ayuningtyas</h6>
+                  <p>Mahasiswa</p>
                 </div>
                 <div class="img-box">
                   <img src="images/client1.jpg" height="110px" width="110px" alt="" class="box-img" />
@@ -476,13 +477,13 @@
             <div class="item">
               <div class="box">
                 <div class="detail-box">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam
+                <p>
+                    Kebetulan sekali kemarin saya ingin mencari pertunjukan tari saman 
+                    untuk acara di rumah, dan kerabat saya merekomendasikan untuk mencari 
+                    di Sedaya dan ternyata sangat mudah sekali
                   </p>
-                  <h6>Saifur</h6>
-                  <p>Lorem, ipsum.</p>
+                  <h6>Jonathan Liew</h6>
+                  <p>Pencari Seni</p>
                 </div>
                 <div class="img-box">
                   <img src="images/client2.jpg" height="110px" width="110px" alt="" class="box-img" />
@@ -492,16 +493,16 @@
             <div class="item">
               <div class="box">
                 <div class="detail-box">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam
+                <p>
+                    Berkat Sedaya kita dapat melakukan promosi seni kita lebih maksimal dan
+                    efisien, kita juga dapat menjangkau seluruh lapisan masyarakat secara cepat 
+                    semoga dapat ditingkatkan lagi Sedaya
                   </p>
-                  <h6>Saifur</h6>
-                  <p>Lorem, ipsum.</p>
+                  <h6>Mahmoed Ali</h6>
+                  <p>Pegiat Seni</p>
                 </div>
                 <div class="img-box">
-                  <img src="images/client.jpg" height="110px" width="110px" alt="" class="box-img" />
+                  <img src="images/client4.jpg" height="110px" width="110px" alt="" class="box-img" />
                 </div>
               </div>
             </div>
