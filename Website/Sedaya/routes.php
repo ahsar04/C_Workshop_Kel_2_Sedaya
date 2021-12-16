@@ -27,6 +27,12 @@ if(isset($_GET['page'])){
 			}else{
 				include 'pages/user-login.php';
 			}
+		}elseif($page == 'update-profile'){
+			if (!empty($_SESSION['login-user'])) {
+			include 'pages/update-profile.php';
+			}else{
+				include 'pages/user-login.php';
+			}
 		}elseif($page == 'user-register'){
 			include 'pages/user-register.php';
 		}else {

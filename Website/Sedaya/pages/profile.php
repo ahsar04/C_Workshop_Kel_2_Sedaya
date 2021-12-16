@@ -60,7 +60,7 @@
                     <br>
               </div>
               <div class="user_option">
-                <a class="order_online" href="#"><i class="fa fa-pencil"></i> Edit </a>
+                <a class="order_online" href="<?=base_url('index.php?page=update-profile&&usr_id='.$r['usr_id'])?>"><i class="fa fa-pencil"></i> Edit </a>
               </div>
             </div>
           </div>

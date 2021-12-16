@@ -61,7 +61,7 @@ Veritrans_Config::$is3ds = true;
   <body>
     <?php
     if (isset($_GET['page'])) {
-      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile') {
+      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile'||$_GET['page']=='update-profile') {
         
       }else{
         echo '<div class="hero_area">
@@ -76,7 +76,7 @@ Veritrans_Config::$is3ds = true;
     ?>
       <!-- header section strats -->
       <header <?php if (isset($_GET['page'])) {
-      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile') {
+      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile'||$_GET['page']=='update-profile') {
         echo 'class="header_section menu-bg"';
       }else{
         echo 'id="menu" class="header_section fixed-top "';
@@ -329,13 +329,14 @@ Veritrans_Config::$is3ds = true;
         snap.pay('<?=$snapToken?>', {
           onSuccess: function(result){
             document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 1);
-          },
-          onPending: function(result){
-            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 1);
-          },
-          onError: function(result){
-            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 1);
           }
+          // ,
+          // onPending: function(result){
+          //   document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 1);
+          // },
+          // onError: function(result){
+          //   document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 1);
+          // }
         });
       };
     </script>

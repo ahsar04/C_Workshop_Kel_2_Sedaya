@@ -5,7 +5,7 @@
             <div class="carousel-item active">
               <div class="container">
                 <div class="row">
-                  <div class="col-md-7 col-lg-6">
+                  <div class="col-md-6 col-lg-5">
                     <div class="detail-box">
                       <h1>Apa itu Sedaya?</h1>
                       <p>
@@ -24,7 +24,7 @@
             <div class="carousel-item">
               <div class="container">
                 <div class="row">
-                  <div class="col-md-7 col-lg-6">
+                  <div class="col-md-6 col-lg-5">
                     <div class="detail-box">
                       <h1>Kelebihan Sedaya.</h1>
                       <p>
@@ -44,7 +44,7 @@
             <div class="carousel-item">
               <div class="container">
                 <div class="row">
-                  <div class="col-md-7 col-lg-6">
+                  <div class="col-md-6 col-lg-5">
                     <div class="detail-box">
                       <h1>Platform.</h1>
                       <p>
@@ -246,7 +246,7 @@
         <div class="filters-content">
           <div class="row grid">
             <?php
-            $show=$syntax->view('seni limit 6');
+            $show=$syntax->view('seni where status=1 limit 6');
             foreach ($show as $r) {
             ?>
             <div class="col-sm-6 col-lg-4 all tari">
@@ -259,8 +259,8 @@
                     <h5><?=$r['judul']?></h5>
                     <p>
                       <?php 
-                      echo substr($r['keterangan'],0,100);
-                      if (strlen($r['keterangan'])>100) {
+                      echo substr($r['keterangan'],0,50);
+                      if (strlen($r['keterangan'])>50) {
                         echo "...";
                       }
                       ?>

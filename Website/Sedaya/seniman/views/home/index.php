@@ -4,33 +4,18 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-success elevation-1"><i class="fa fa-users"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Jumlah admin</span>
-                                <span class="info-box-number">
-                                <?php $show=$syntax->view("mstr_admin");
-                                    echo mysqli_num_rows($show);
-                                ?>
-                                </span>
-                            </div>
-                        <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
                     <!-- /.col -->
                     <div class="col-md-4">
                         <div class="info-box mb-3">
-                        <span class="info-box-icon bg-maroon elevation-1"><i class="fa fa-cart-arrow-down"></i></span>
+                        <span class="info-box-icon bg-navy elevation-1"><i class="fa fa-check"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Transaksi berlangsung</span>
+                            <span class="info-box-text">Postingan aktif</span>
                             <span class="info-box-number">
-                            <?php $show=$syntax->view("transaksi where status=0");
+                            <?php $show=$syntax->view("seni where status=1 and snm_id=".$_SESSION['login-user']['snm_id']);
                                 echo mysqli_num_rows($show);
-                            ?></span>
+                            ?>
+                            </span>
                         </div>
                         <!-- /.info-box-content -->
                         </div>
@@ -44,7 +29,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Menunggu konfirmasi</span>
                             <span class="info-box-number">
-                            <?php $show=$syntax->view("seni where status=0");
+                            <?php $show=$syntax->view("seni where status=0 and snm_id=".$_SESSION['login-user']['snm_id']);
                                 echo mysqli_num_rows($show);
                             ?>
                             </span>
@@ -53,49 +38,14 @@
                         </div>
                         <!-- /.info-box -->
                     </div>
-                    <!-- /.col -->
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-success elevation-1"><i class="fa fa-users"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Jumlah user</span>
-                                <span class="info-box-number">
-                                <?php $show=$syntax->view("mstr_user");
-                                    echo mysqli_num_rows($show);
-                                ?>
-                                </span>
-                            </div>
-                        <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
-                    <!-- /.col -->
                     <div class="col-md-4">
                         <div class="info-box mb-3">
-                        <span class="info-box-icon bg-maroon elevation-1"><i class="fa fa-calendar-check"></i></span>
+                        <span class="info-box-icon bg-navy elevation-1"><i class="fa fa-calendar-check"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Transaksi selesai</span>
+                            <span class="info-box-text">Transaksi baru</span>
                             <span class="info-box-number">
-                            <?php $show=$syntax->view("transaksi where status=1");
-                                echo mysqli_num_rows($show);
-                            ?></span>
-                        </div>
-                        <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
-                    <div class="col-md-4">
-                        <div class="info-box mb-3">
-                        <span class="info-box-icon bg-navy elevation-1"><i class="fa fa-check"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text">Postingan aktif</span>
-                            <span class="info-box-number">
-                            <?php $show=$syntax->view("seni where status=1");
+                            <?php $show=$syntax->view("transaksi,seni where transaksi.sn_id = seni.sn_id and t_status=0 and snm_id=".$_SESSION['login-user']['snm_id']);
                                 echo mysqli_num_rows($show);
                             ?>
                             </span>
@@ -103,53 +53,6 @@
                         <!-- /.info-box-content -->
                         </div>
                         <!-- /.info-box -->
-                    </div>
-                    <!-- /.col -->
-                </div>
-                <div class="row">
-                    <div class="col-md-12 card card-primary card-outline">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                            <i class="far fa-chart-bar"></i>
-                            Transaksi Mingguan
-                            </h3>
-
-                            <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                <i class="fas fa-times"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="card-body" style="display: block;">
-                            <div id="bar-chart" style="height: 300px; padding: 0px; position: relative;">
-                                <canvas class="flot-base" width="597" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 597.5px; height: 300px;"></canvas>
-                                <canvas class="flot-overlay" width="597" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 597.5px; height: 300px;"></canvas>
-                                <div class="flot-svg" style="position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; pointer-events: none;">
-                                    <svg style="width: 100%; height: 100%;">
-                                        <g class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; inset: 0px;">
-                                            <text x="124.19460227272725" y="293.75" class="flot-tick-label tickLabel" style="position: absolute; text-align: center;">Senin</text>
-                                            <text x="229.58309659090907" y="293.75" class="flot-tick-label tickLabel" style="position: absolute; text-align: center;">Selasa</text>
-                                            <text x="332.1356534090909" y="293.75" class="flot-tick-label tickLabel" style="position: absolute; text-align: center;">Rabu</text>
-                                            <text x="430.3522727272727" y="293.75" class="flot-tick-label tickLabel" style="position: absolute; text-align: center;">Kamis</text>
-                                            <text x="31.501420454545453" y="293.75" class="flot-tick-label tickLabel" style="position: absolute; text-align: center;">Jumat</text>
-                                            <text x="526.2017045454545" y="293.75" class="flot-tick-label tickLabel" style="position: absolute; text-align: center;">Sabtu</text>
-                                            <text x="626.2017045454545" y="293.75" class="flot-tick-label tickLabel" style="position: absolute; text-align: center;">Minggu</text>
-                                        </g>
-                                        <g class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; inset: 0px;">
-                                            <text x="9.625" y="268.25" class="flot-tick-label tickLabel" style="position: absolute; text-align: right;">0</text>
-                                            <text x="9.625" y="205.25" class="flot-tick-label tickLabel" style="position: absolute; text-align: right;">5</text>
-                                            <text x="1" y="16.25" class="flot-tick-label tickLabel" style="position: absolute; text-align: right;">20</text>
-                                            <text x="1" y="142.25" class="flot-tick-label tickLabel" style="position: absolute; text-align: right;">10</text>
-                                            <text x="1" y="79.25" class="flot-tick-label tickLabel" style="position: absolute; text-align: right;">15</text>
-                                        </g>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.card-body-->
                     </div>
                 </div>
             </div>

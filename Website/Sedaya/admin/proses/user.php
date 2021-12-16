@@ -157,7 +157,7 @@ if($proses=='update'){
 	$user = $_POST['username'];
     $pass = md5($_POST['password']);
     if (!empty(trim($user)) && !empty(trim($pass))) {
-    $cek_login = $syntax->view_kon("mstr_user","username='$user' && password='$pass'");
+    $cek_login = $syntax->view_kon("mstr_user, mstr_seniman","mstr_user.username='$user' && mstr_user.password='$pass'");
     $num = mysqli_num_rows($cek_login);
     $row = $cek_login->fetch_array();
         if ($num != 0) {

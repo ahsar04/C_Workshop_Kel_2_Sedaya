@@ -53,7 +53,12 @@
                         </div>
                         <div class="col-md-6">
                           <h3><?=$judul?></h3>
-                          <?=substr($keterangan,0,100)?>..
+                          <?php
+                          echo substr($r['keterangan'],0,100);
+                          if (strlen($r['keterangan'])>100) {
+                            echo "...";
+                          }
+                          ?>
                           <!-- <b>Jenis :</b> <?=$jenis?><br>
                           <b>Harga :</b> Rp. <?=number_format($harga,2,".",",")?><br><br> -->
                           <br><br>

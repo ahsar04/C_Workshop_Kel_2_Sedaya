@@ -164,7 +164,7 @@
         <div class="filters-content">
           <div class="row grid">
             <?php
-            $show=$syntax->view('seni');
+            $show=$syntax->view('seni where status=1');
             foreach ($show as $r) {
             ?>
             <div class="col-sm-6 col-lg-4 all tari">
