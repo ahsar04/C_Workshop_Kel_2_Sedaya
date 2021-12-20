@@ -301,7 +301,7 @@ Veritrans_Config::$is3ds = true;
           $target = $(target);
           $('html, body').stop().animate({
               'scrollTop': $target.offset().top+2
-          }, 500, 'swing', function () {
+          }, 700, 'swing', function () {
               window.location.hash = target;
               $(document).on("scroll", onScroll);
           });

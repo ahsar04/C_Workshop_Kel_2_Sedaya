@@ -7,8 +7,8 @@
                     <div class="col-md-4">
                         <div class="info-box">
                             <span class="info-box-icon bg-success elevation-1"><i class="fa fa-users"></i></span>
-
-                            <div class="info-box-content">
+                            <a href="<?=base_url('admin/index.php?page=admin');?>">
+                            <div class="info-box-content" style="color:black;">
                                 <span class="info-box-text">Jumlah admin</span>
                                 <span class="info-box-number">
                                 <?php $show=$syntax->view("mstr_admin");
@@ -16,6 +16,7 @@
                                 ?>
                                 </span>
                             </div>
+                            </a>
                         <!-- /.info-box-content -->
                         </div>
                         <!-- /.info-box -->
@@ -24,14 +25,15 @@
                     <div class="col-md-4">
                         <div class="info-box mb-3">
                         <span class="info-box-icon bg-maroon elevation-1"><i class="fa fa-cart-arrow-down"></i></span>
-
-                        <div class="info-box-content">
+                        <a href="<?=base_url('admin/index.php?page=transaksi');?>">
+                        <div class="info-box-content" style="color:black;">
                             <span class="info-box-text">Transaksi berlangsung</span>
                             <span class="info-box-number">
                             <?php $show=$syntax->view("transaksi where t_status=0");
                                 echo mysqli_num_rows($show);
                             ?></span>
                         </div>
+                        </a>
                         <!-- /.info-box-content -->
                         </div>
                         <!-- /.info-box -->
@@ -40,8 +42,8 @@
                     <div class="col-md-4">
                         <div class="info-box mb-3">
                         <span class="info-box-icon bg-navy elevation-1"><i class="fa fa-spinner"></i></span>
-
-                        <div class="info-box-content">
+                        <a href="<?=base_url('admin/index.php?page=post-pending');?>">
+                        <div class="info-box-content" style="color:black;">
                             <span class="info-box-text">Menunggu konfirmasi</span>
                             <span class="info-box-number">
                             <?php $show=$syntax->view("seni where status=0");
@@ -49,6 +51,7 @@
                             ?>
                             </span>
                         </div>
+                        </a>
                         <!-- /.info-box-content -->
                         </div>
                         <!-- /.info-box -->
@@ -59,8 +62,8 @@
                     <div class="col-md-4">
                         <div class="info-box">
                             <span class="info-box-icon bg-success elevation-1"><i class="fa fa-users"></i></span>
-
-                            <div class="info-box-content">
+                        <a href="<?=base_url('admin/index.php?page=user');?>">
+                            <div class="info-box-content" style="color:black;">
                                 <span class="info-box-text">Jumlah user</span>
                                 <span class="info-box-number">
                                 <?php $show=$syntax->view("mstr_user");
@@ -68,6 +71,7 @@
                                 ?>
                                 </span>
                             </div>
+                        </a>
                         <!-- /.info-box-content -->
                         </div>
                         <!-- /.info-box -->
@@ -76,14 +80,15 @@
                     <div class="col-md-4">
                         <div class="info-box mb-3">
                         <span class="info-box-icon bg-maroon elevation-1"><i class="fa fa-calendar-check"></i></span>
-
-                        <div class="info-box-content">
+                        <a href="<?=base_url('admin/index.php?page=transaksi');?>">
+                        <div class="info-box-content" style="color:black;">
                             <span class="info-box-text">Transaksi selesai</span>
                             <span class="info-box-number">
                             <?php $show=$syntax->view("transaksi where t_status=1");
                                 echo mysqli_num_rows($show);
                             ?></span>
                         </div>
+                        </a>
                         <!-- /.info-box-content -->
                         </div>
                         <!-- /.info-box -->
@@ -91,8 +96,8 @@
                     <div class="col-md-4">
                         <div class="info-box mb-3">
                         <span class="info-box-icon bg-navy elevation-1"><i class="fa fa-check"></i></span>
-
-                        <div class="info-box-content">
+                        <a href="<?=base_url('admin/index.php?page=post-active');?>">
+                        <div class="info-box-content" style="color:black;">
                             <span class="info-box-text">Postingan aktif</span>
                             <span class="info-box-number">
                             <?php $show=$syntax->view("seni where status=1");
@@ -100,6 +105,7 @@
                             ?>
                             </span>
                         </div>
+                        </a>
                         <!-- /.info-box-content -->
                         </div>
                         <!-- /.info-box -->

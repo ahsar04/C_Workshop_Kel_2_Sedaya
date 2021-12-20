@@ -13,9 +13,13 @@
                         kebudayaan Indonesia melalui seniman dan penikmat seni yang 
                         terhubung langsung dengan aplikasi ini.
                       </p>
-                      <div class="btn-box">
-                        <a href="" class="btn1"> Join Now </a>
-                      </div>
+                      <?php
+                      if (!isset($_SESSION['login-user'])) {
+                        echo '<div class="btn-box">
+                        <a href="'.base_url('index.php?page=user-register').'" class="btn1"> Join Now </a>
+                      </div>';
+                      }
+                      ?>
                     </div>
                   </div>
                 </div>
@@ -33,9 +37,13 @@
                         keberagaman seni di Indonesia dengan memesan jasa seniman 
                         melalui aplikasi Sedaya
                       </p>
-                      <div class="btn-box">
-                        <a href="" class="btn1"> Join Now </a>
-                      </div>
+                      <?php
+                      if (!isset($_SESSION['login-user'])) {
+                        echo '<div class="btn-box">
+                        <a href="'.base_url('index.php?page=user-register').'" class="btn1"> Join Now </a>
+                      </div>';
+                      }
+                      ?>
                     </div>
                   </div>
                 </div>
@@ -52,9 +60,13 @@
                         oleh seluruh kalangan masyarakat Indonesia. Bertransaksi dengan 
                         mudah, aman dan cepat melalui aplikasi Sedaya.
                       </p>
-                      <div class="btn-box">
-                        <a href="" class="btn1"> Join Now </a>
-                      </div>
+                      <?php
+                      if (!isset($_SESSION['login-user'])) {
+                        echo '<div class="btn-box">
+                        <a href="'.base_url('index.php?page=user-register').'" class="btn1"> Join Now </a>
+                      </div>';
+                      }
+                      ?>
                     </div>
                   </div>
                 </div>

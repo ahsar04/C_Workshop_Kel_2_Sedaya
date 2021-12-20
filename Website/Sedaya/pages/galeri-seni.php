@@ -154,20 +154,26 @@
 
         <ul class="filters_menu">
           <li class="active" data-filter="*">All</li>
-          <li data-filter=".lukis">Lukis</li>
-          <li data-filter=".tari">Tari</li>
+          <?php
+            $show1=$syntax->view_field('distinct jenis.jenis, jenis.jns_id','seni join jenis on seni.jns_id=jenis.jns_id where status=1');
+            foreach ($show1 as $row) {
+          ?>
+          <li data-filter=".<?=$row['jns_id']?>"><?=$row['jenis']?></li>
+          <?php 
+          }?>
+          <!-- <li data-filter=".tari">Tari</li>
           <li data-filter=".teater">Teater</li>
           <li data-filter=".rohani">Rohani</li>
-          <li data-filter=".lainnya">Lainnya</li>
+          <li data-filter=".lainnya">Lainnya</li> -->
         </ul>
 
         <div class="filters-content">
           <div class="row grid">
             <?php
-            $show=$syntax->view('seni where status=1');
+            $show=$syntax->view('seni join jenis on seni.jns_id=jenis.jns_id where status=1');
             foreach ($show as $r) {
             ?>
-            <div class="col-sm-6 col-lg-4 all tari">
+            <div class="col-sm-6 col-lg-4 all <?=$r['jns_id']?>">
               <div class="box">
                 <div>
                   <div class="img-box">

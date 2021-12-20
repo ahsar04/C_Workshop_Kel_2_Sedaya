@@ -7,7 +7,7 @@
     <section class="food_section about pt-0 padding">
         <div class="container">
           <div class="heading_container heading_center">
-            <h2>Transaksi Berlangsung</h2>
+            <h2>Menunggu pembayaran</h2>
           </div><br><br>
           <div class="row">
             <div class="col-lg-12">
@@ -28,7 +28,7 @@
             <?php
             $usr_id = $_SESSION['login-user']['usr_id'];
             $n=1;
-            $show=$syntax->view("transaksi,seni,mstr_user where transaksi.sn_id=seni.sn_id and transaksi.usr_id=mstr_user.usr_id and transaksi.usr_id=$usr_id and transaksi.t_status<=2 ");
+            $show=$syntax->view("transaksi,seni,mstr_user where transaksi.sn_id=seni.sn_id and transaksi.usr_id=mstr_user.usr_id and transaksi.usr_id=$usr_id and transaksi.t_status<=1 ");
             foreach ($show as $r) {
             ?>
                 <tr>
@@ -60,9 +60,9 @@
                   if ($r['t_status']!='3' && $r['t_status']!='2') {
                     echo '<a href="'.base_url('seniman/proses/transaksi.php?proses=batal&&no_transaksi='.$r['no_transaksi']).'"><button class="btn btn-danger ">Batal</button></a>';
                   }
-                  if ($r['tgl_kegiatan']==date('Y-m-d')) {
-                    echo '<a href="'.base_url('seniman/proses/transaksi.php?proses=selesai&&no_transaksi='.$r['no_transaksi']).'"><button class="btn btn-warning ">Selesai</button></a>';
-                  }
+                  // if ($r['tgl_kegiatan']==date('Y-m-d')) {
+                  //   echo '<a href="'.base_url('seniman/proses/transaksi.php?proses=selesai&&no_transaksi='.$r['no_transaksi']).'"><button class="btn btn-warning ">Selesai</button></a>';
+                  // }
                   ?>
                 </td>
               </tr>
@@ -71,7 +71,7 @@
                           
             $transaction_details = array(
                 'order_id' => $r['no_transaksi'],
-                'gross_amount' => 40000, 
+                'gross_amount' => $r['harga']+$r['transport'], 
               );
 
               $item_details = array(
@@ -113,10 +113,10 @@
               );
 
               $enable_payments = array("gopay", "indomaret", "alfamart",
-                                      // "bca_klikbca", "bca_klikpay",
-                                      // "credit_card", "mandiri_clickpay", "cimb_clicks",
-                                      //   "bri_epay", "echannel", "permata_va",
-                                      //   "bca_va", "bni_va", "other_va"
+                                      "bca_klikbca", "bca_klikpay",
+                                      "credit_card", "mandiri_clickpay", "cimb_clicks",
+                                        "bri_epay", "echannel", "permata_va",
+                                        "bca_va", "bni_va", "other_va"
                                         );
 
               $transaction = array(
@@ -151,7 +151,7 @@
               </p>
           </div>
           <div class="heading_container heading_center">
-            <h2>Transaksi Selesai</h2>
+            <h2>Semua Transaksi</h2>
           </div><br><br>
           <div class="row">
             <div class="col-lg-12">
@@ -172,7 +172,7 @@
             <?php
             $usr_id = $_SESSION['login-user']['usr_id'];
             $n=1;
-            $show=$syntax->view("transaksi,seni,mstr_user where transaksi.sn_id=seni.sn_id and transaksi.usr_id=mstr_user.usr_id and transaksi.usr_id=$usr_id and transaksi.t_status>2 ");
+            $show=$syntax->view("transaksi,seni,mstr_user where transaksi.sn_id=seni.sn_id and transaksi.usr_id=mstr_user.usr_id and transaksi.usr_id=$usr_id and transaksi.t_status>=2 ");
             foreach ($show as $r) {
             ?>
                 <tr>

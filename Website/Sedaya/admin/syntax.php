@@ -11,7 +11,7 @@ date_default_timezone_set('Asia/Jakarta');
 
 		public function view($tabel){
 			return $this->db->query("select * from $tabel");
-		}
+		} 
 
 		public function view_field($field,$tabel){
 			return $this->db->query("select $field from $tabel");
