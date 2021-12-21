@@ -3,7 +3,9 @@ package com.example.sedaya.ui.login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.example.sedaya.core.data.repository.AppRepository
+import com.example.sedaya.core.data.source.remote.request.LoginRequest
 
 class LoginViewModel (val repo:AppRepository):ViewModel() {
 
@@ -16,6 +18,6 @@ class LoginViewModel (val repo:AppRepository):ViewModel() {
         _text.postValue("Ini aku M Hasan John")
     }
 
-    fun login() = repo.login()
+    fun login(data: LoginRequest) = repo.login(data).asLiveData()
 
 }

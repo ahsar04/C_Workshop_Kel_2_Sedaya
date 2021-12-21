@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.sedaya.R
+import com.example.sedaya.core.data.source.remote.request.LoginRequest
 import com.example.sedaya.databinding.ActivityLoginBinding
 import com.example.sedaya.databinding.FragmentDashboardBinding
 import com.example.sedaya.util.Prefs
@@ -24,13 +25,21 @@ class LoginActivity : AppCompatActivity() {
         setData()
     }
 
-    fun setData() {
+    private fun setData() {
         viewModel.text.observe(this,{
-            binding.edtEmail.setText(it)
+            binding.edtUsername.setText(it)
         })
 
         binding.btnMasuk.setOnClickListener {
-            viewModel.login()
+
+            val body = LoginRequest(
+                binding.edtUsername.text.toString(),
+                binding.edtPasswword.text.toString()
+            )
+
+            viewModel.login(body).observe(this, {
+
+            })
         }
     }
 
