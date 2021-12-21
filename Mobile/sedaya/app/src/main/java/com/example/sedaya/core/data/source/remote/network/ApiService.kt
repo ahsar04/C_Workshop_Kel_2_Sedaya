@@ -11,4 +11,10 @@ interface ApiService {
     suspend fun login(
             //@Body user: User
     ): Response<RequestBody>
+
+    //https://localhost/Sedaya/API/register
+    @POST("register")
+    suspend fun register(
+        //@Body user: User
+    ): Response<RequestBody>
 }

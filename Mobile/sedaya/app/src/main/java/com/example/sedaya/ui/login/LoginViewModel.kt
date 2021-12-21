@@ -15,4 +15,7 @@ class LoginViewModel (val repo:AppRepository):ViewModel() {
     fun ubahData() {
         _text.postValue("Ini aku M Hasan John")
     }
+
+    fun login() = repo.login()
+
 }

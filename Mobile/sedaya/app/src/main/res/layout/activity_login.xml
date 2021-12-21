@@ -128,7 +128,6 @@
 
     </LinearLayout>
 
-
     
     <LinearLayout
         android:layout_centerInParent="true"
@@ -164,8 +163,5 @@
             android:layout_centerInParent="true" />
 
     </LinearLayout>
-
-
-
 
 </RelativeLayout>

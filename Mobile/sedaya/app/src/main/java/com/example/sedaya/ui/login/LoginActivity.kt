@@ -30,28 +30,10 @@ class LoginActivity : AppCompatActivity() {
         })
 
         binding.btnMasuk.setOnClickListener {
-            viewModel.ubahData()
+            viewModel.login()
         }
     }
 
-    fun testing() {
-        val s =Prefs(this)
-        if (s.getIsLogin()){
-            binding.tvStatus.text = "SUDAH LOGIN"
-        } else binding.tvStatus.text = "BELUM LOGIN"
-
-        binding.btnLogin.setOnClickListener{
-            s.setIsLogin(true)
-            onBackPressed()
-        }
-
-        binding.btnLogout.setOnClickListener{
-            s.setIsLogin(false)
-            onBackPressed()
-        }
-
-        Log.d("RESPON", "PESAN SINGKAT")
-    }
 
 
 }
