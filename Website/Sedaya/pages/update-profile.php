@@ -17,7 +17,8 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form_container">
-              <form  action="<?=base_url('admin/proses/user.php?proses=update-profile');?>" method="POST">
+              <form  action="<?=base_url('admin/proses/user.php?proses=update-profile');?>" method="POST" enctype="multipart/form-data">
+              <input type="hidden" name="usr_id" value="<?=$r['usr_id']?>">
               <div class="row"> 
                 <div class="col-md-6">
                   <div>
@@ -53,7 +54,7 @@
                     <input
                       type="date"
                       class="form-control"
-                      name="tgl_lagir"
+                      name="tgl_lahir"
                       value="<?=$r['tgl_lahir']?>"
                       placeholder="Date of Birt*"required
                     />

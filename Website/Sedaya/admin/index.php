@@ -34,7 +34,7 @@ if (!isset($_GET['page'])) {
 <link rel="stylesheet" href="plugins/ekko-lightbox/ekko-lightbox.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <link rel="icon" href="dist/img/sedaya.png" type="image/icon type">
+    <link rel="shortcut icon" href="images/sedaya.png" type="" />
 </head>
 <body class="light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" style="height: auto;">
 <div class="wrapper">
@@ -97,7 +97,7 @@ if (!isset($_GET['page'])) {
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="<?=base_url('admin/dist/img/sedaya.jpg')?>" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="images/sedaya.png" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light"><b>Sedaya</b></span>
     </a>
 

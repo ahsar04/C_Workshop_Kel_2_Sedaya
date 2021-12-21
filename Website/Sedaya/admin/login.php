@@ -41,6 +41,7 @@ if (isset($_POST['login'])) {
     <title>Sedaya | Login</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="shortcut icon" href="images/sedaya.png" type="" />
   </head>
   <body>
     <div class="container">

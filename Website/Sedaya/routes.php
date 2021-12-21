@@ -33,6 +33,12 @@ if(isset($_GET['page'])){
 			}else{
 				include 'pages/user-login.php';
 			}
+		}elseif($page == 'daftar-seniman'){
+			if (!empty($_SESSION['login-user'])) {
+			include 'pages/daftar-seniman.php';
+			}else{
+				include 'pages/user-login.php';
+			}
 		}elseif($page == 'user-register'){
 			include 'pages/user-register.php';
 		}else {

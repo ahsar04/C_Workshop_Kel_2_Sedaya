@@ -90,7 +90,7 @@ if($proses=='update'){
 	$alamat=$_POST['alamat'];
 	$username=$_POST['username'];
 	$pasword=md5($_POST['password']);
-	$status=2;
+	$status=1;
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
         $filename = $usr_id."_".$_FILES["foto"]["name"];
@@ -116,6 +116,50 @@ if($proses=='update'){
 				"'$usr_id','$nama','$jk','$tmp_lahir','$tgl_lahir','$telp','$email','$alamat','$username','$pasword','$status','$foto'");
 				if($cek_proses){
 					header('location: ' .base_url('admin/index.php?page=user'));
+				}else{
+					echo "eror";
+				}
+            } 
+        } else{
+            echo "Error: There was a problem uploading your file. Please try again."; 
+        }
+    } else{
+        echo "Error: " . $_FILES["foto"]["error"];
+    }
+}elseif($proses=='daftar-seniman'){
+	$usr_id=$_POST['usr_id'];
+	$nama_snm=$_POST["nama_snm"];
+	$telp=$_POST['telp'];
+	$email=$_POST['email'];
+	$alamat=$_POST['alamat'];
+	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
+        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
+        $filename = $usr_id."_".$_FILES["foto"]["name"];
+        $filetype = $_FILES["foto"]["type"];
+        $filesize = $_FILES["foto"]["size"];
+		$foto=$filename;
+        // Verify file extension
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!array_key_exists($ext, $allowed)) die("Error: Please select a valid file format.");
+    
+        // Verify file size - 5MB maximum
+        $maxsize = 5 * 1024 * 1024;
+        if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
+    
+        // Verify MYME type of the file
+        if(in_array($filetype, $allowed)){
+            // Check whether file exists before uploading it
+            if(file_exists("../public/img/seniman/" . $filename)){
+                echo $filename . " is already exists.";
+            } else{
+                move_uploaded_file($_FILES["foto"]["tmp_name"], "../public/img/seniman/" . $filename);
+				$cek_proses=$syntax->insert("mstr_seniman","usr_id,nama_snm,telp,email,alamat,snm_foto",
+				"'$usr_id','$nama_snm','$telp','$email','$alamat','$foto'");
+				if($cek_proses){
+					$update_status=$syntax->update("mstr_user","status='2'","usr_id='$usr_id'");
+					echo "<script>alert('Daftar Seniman Berhasil.')</script>";
+					echo "<script>alert('Silahkan login kembali!')</script>";
+					echo "<script>window.location.href='".base_url('index.php?page=user-login')."'</script>";
 				}else{
 					echo "eror";
 				}
@@ -157,21 +201,88 @@ if($proses=='update'){
 	$user = $_POST['username'];
     $pass = md5($_POST['password']);
     if (!empty(trim($user)) && !empty(trim($pass))) {
-    $cek_login = $syntax->view_kon("mstr_user, mstr_seniman","mstr_user.username='$user' && mstr_user.password='$pass'");
+    $cek_login = $syntax->view_kon("mstr_user, mstr_seniman","mstr_user.usr_id=mstr_seniman.usr_id and mstr_user.username='$user' && mstr_user.password='$pass'");
     $num = mysqli_num_rows($cek_login);
     $row = $cek_login->fetch_array();
         if ($num != 0) {
-            if ($row['username']==$user && $$row['password']= $pass) {
-                session_start();
-                $_SESSION['login-user'] = $row;
-			header('location: ' .base_url(''));
-            }else {
-                echo "<script>alert('Username atau Password salah!!')</script>";
-                echo "<script>window.location.href='".base_url('index.php?page=user-login')."'</script>";
-            }
+			if ($row['username']==$user && $row['password']= $pass) {
+				session_start();
+				$_SESSION['login-user'] = $row;
+				header('location: ' .base_url(''));
+			}else {
+				echo "<script>alert('Username atau Password salah!!')</script>";
+				echo "<script>window.location.href='".base_url('index.php?page=user-login')."'</script>";
+			}
         }else{
-            echo "<script>alert('Username tidak ditemukan!')</script>";
-            echo "<script>window.location.href='".base_url('index.php?page=user-login')."'</script>";
+            $cek_login = $syntax->view_kon("mstr_user","mstr_user.username='$user' && mstr_user.password='$pass'");
+			$num = mysqli_num_rows($cek_login);
+			$row = $cek_login->fetch_array();
+				if ($num != 0) {
+					if ($row['username']==$user && $row['password']= $pass) {
+						session_start();
+						$_SESSION['login-user'] = $row;
+						header('location: ' .base_url(''));
+					}else {
+						echo "<script>alert('Username atau Password salah!!')</script>";
+						echo "<script>window.location.href='".base_url('index.php?page=user-login')."'</script>";
+					}
+				}else{
+					echo "<script>alert('Username tidak ditemukan!')</script>";
+					echo "<script>window.location.href='".base_url('index.php?page=user-login')."'</script>";
+				}
         }
+    }
+}elseif($proses=='update-profile'){
+	$usr_id=$_POST["usr_id"];
+	$nama=$_POST["nama"];
+	$jk=$_POST['jk'];
+	$tmp_lahir=$_POST['tmp_lahir'];
+	$tgl_lahir=$_POST['tgl_lahir'];
+	$telp=$_POST['telp'];
+	$email=$_POST['email'];
+	$alamat=$_POST['alamat'];
+	// $username=$_POST['username'];
+	// $pasword=md5($_POST['password']);
+	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
+        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
+        $filename = $usr_id."_".$_FILES["foto"]["name"];
+        $filetype = $_FILES["foto"]["type"];
+        $filesize = $_FILES["foto"]["size"];
+		$foto=$filename;
+        // Verify file extension
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!array_key_exists($ext, $allowed)) die("Error: Please select a valid file format.");
+    
+        // Verify file size - 5MB maximum
+        $maxsize = 5 * 1024 * 1024;
+        if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
+    
+        // Verify MYME type of the file
+        if(in_array($filetype, $allowed)){
+            // Check whether file exists before uploading it
+
+                $q = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
+                $r = $q->fetch_array();
+                $fotoawal=$r['foto'];
+            	$file='../public/img/user/'.$fotoawal;
+            	unlink($file);
+                move_uploaded_file($_FILES["foto"]["tmp_name"], "../public/img/user/" . $filename);
+				$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',foto='$foto'","usr_id='$usr_id'");
+				if($cek_proses){
+					header('location: ' .base_url('index.php?page=profile'));
+				}else{
+					echo "eror";
+				}
+        } else{
+            echo "Error: There was a problem uploading your file. Please try again."; 
+        }
+    } else{
+                
+		$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat'","usr_id='$usr_id'");
+		if($cek_proses){
+			header('location: ' .base_url('index.php?page=profile'));
+		}else{
+			echo "eror";
+		}
     }
 }?>

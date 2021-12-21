@@ -249,7 +249,7 @@ a:focus {
 }
 
 .header_section {
-  padding: 15px 0;
+  padding: 5px 0;
 }
 
 .header_section .container-fluid {
@@ -259,6 +259,12 @@ a:focus {
 
 .navbar-brand {
   font-family: "Dancing Script", cursive;
+}
+
+.navbar-brand span img {
+  height: 45px;
+  width: 60px;
+  padding-bottom: 8px;
 }
 
 .navbar-brand span {

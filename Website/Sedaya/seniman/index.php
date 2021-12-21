@@ -2,7 +2,11 @@
 session_start();
 if(empty($_SESSION['login-user'])){
 echo "<script>alert('Silahkan login terlebih dahulu!!')</script>";
-header("location:login.php");
+echo "<script>window.location.href='".base_url('index.php?page=user-login')."'</script>";
+}
+if($_SESSION['login-user']['status']!=2){
+echo "<script>alert('Halaman ini hanya dapat diakses oleh seniman.!!')</script>";
+echo "<script>window.location.href='".base_url('index.php?page=profile')."'</script>";
 }
 if (!isset($_GET['page'])) {
   $page='dashboard';
@@ -32,7 +36,7 @@ $snm_id=$_SESSION['login-user']['snm_id'];
   <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <link rel="icon" href="dist/img/sedaya.png" type="image/icon type">
+    <link rel="shortcut icon" href="../admin/images/sedaya.png" type="" />
 </head>
 <body class="light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" style="height: auto;">
 <div class="wrapper">
@@ -95,7 +99,7 @@ $snm_id=$_SESSION['login-user']['snm_id'];
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="<?=base_url('admin/dist/img/sedaya.jpg')?>" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="../admin/images/sedaya.png" alt="logo" class="brand-image img-circle elevation-3">
       <span class="brand-text font-weight-light"><b>Sedaya</b></span>
     </a>
 

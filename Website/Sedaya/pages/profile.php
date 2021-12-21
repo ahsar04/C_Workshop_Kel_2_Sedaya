@@ -9,7 +9,7 @@
             <?php
             $usr_id = $_SESSION['login-user']['usr_id'];
             $show=$syntax->view_kon("mstr_user","usr_id='$usr_id'");
-            foreach ($show as $r) {
+            $r = $show->fetch_array();
             ?>
           <div class="heading_container heading_center">
             <h2>Profile</h2>
@@ -49,8 +49,8 @@
                     <tr>
                       <td><b>Status </b></td>
                       <td> : <?php
-                      if ($r['status']=='0') {
-                        echo 'Penikmat Seni';
+                      if ($r['status']<='1') {
+                        echo'Penikmat seni || <a class="order_online" href="'.base_url('index.php?page=daftar-seniman').'">Daftar Seniman <i class="fa fa-arrow-circle-right"></i> </a>';
                       }else{
                         echo '<a class="order_online" href="'.base_url('seniman').'">Seniman <i class="fa fa-arrow-circle-right"></i> </a>';
                       }
@@ -64,8 +64,6 @@
               </div>
             </div>
           </div>
-            <?php }
-           ?>
         </div>
       </section>
     </div>

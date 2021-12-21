@@ -20,7 +20,7 @@ if ($data) {
     }
     echo json_encode(array(
         'message'=>'berhasil',
-        'data'=>$result
+        'data   '=>$result
     ));
 }
        

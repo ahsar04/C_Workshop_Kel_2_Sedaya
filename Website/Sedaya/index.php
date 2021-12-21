@@ -23,7 +23,7 @@ Veritrans_Config::$is3ds = true;
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="images/favicon.png" type="" />
+    <link rel="shortcut icon" href="admin/images/sedaya.png" type="" />
 
     <title>Sedaya | Explore Your Art</title>
 
@@ -89,7 +89,7 @@ Veritrans_Config::$is3ds = true;
             class="navbar navbar-expand-lg custom_nav-container container-fluid"
           >
             <a class="navbar-brand" href="<?=base_url('')?>">
-              <span> Sedaya </span>
+              <span><img class="logo-sedaya" src="admin/images/sedaya.png" alt="" srcset=""> Sedaya </span>
             </a>
 
             <button
