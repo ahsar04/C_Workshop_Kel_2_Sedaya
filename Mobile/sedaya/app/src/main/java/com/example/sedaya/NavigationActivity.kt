@@ -37,7 +37,7 @@ class NavigationActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         navView.setOnItemSelectedListener {
 
-            if (it.itemId == R.id.navigation_history){
+            if (it.itemId == R.id.navigation_notifications){
                 val s = Prefs(this)
                 if (s.getIsLogin()){
                     Log.d("TAG", "Sudah Login")
