@@ -178,13 +178,18 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseOne">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        1. Lorem ipsum dolor sit amet
+                                        1. Bagaimana menambahkan user ? 
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseOne" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                <li>pertama pilih menu master</li>
+                                <li>selanjutnya klik menu user, maka akan muncul data user </li>
+                                <li>kemudian klik tombol add new </li>
+                                <li>silahkan isi data data user tersebut</li>
+                                <li>jika data sudah terisi dengan benar, kemudian klik add</li>
+                                <li>user berhasil ditambahkan</li>
                                 </div>
                             </div>
                         </div>
@@ -192,13 +197,18 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseTwo">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        2. Aenean massa
+                                        2. Bagaimana menambahkan admin master ?
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseTwo" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                <li> pilih menu master</li>
+                                <li>selanjutnya klik menu admin, maka akan muncul data admin </li>
+                                <li>kemudian klik tombol add new </li>
+                                <li>silahkan isi data data admin tersebut</li>
+                                <li>jika data sudah terisi dengan benar, kemudian klik add</li>
+                                <li>admin berhasil ditambahkan</li>
                                 </div>
                             </div>
                         </div>
@@ -206,13 +216,14 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseThree">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        3. Donec quam felis
+                                        3. Dimana saya bisa melihat data seniman ?
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                                <li>pertama pilih menu master</li>
+                                <li>selanjutnya pilih menu admin, maka akan muncul data seniman </li>
                                 </div>
                             </div>
                         </div>
@@ -220,13 +231,14 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseFour">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        4. Donec pede justo
+                                        4. Dimana saya bisa melihat data transaksi ?
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseFour" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                                silahkan pilih menu transaksi, maka disitu akan muncul data data transaksi
+                                
                                 </div>
                             </div>
                         </div>
@@ -234,13 +246,14 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseFive">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        5. In enim justo
+                                        5. Dimana saya bisa melihat data user
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseFive" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+                                <li>pilih menu master</li>
+                                <li>selanjutnya klik menu user, maka akan muncul data user ? </li>
                                 </div>
                             </div>
                         </div>
@@ -248,13 +261,13 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseSix">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        6. Integer tincidunt
+                                        6. Dimana saya bisa melihat kritik dan saran dari pengguna ?
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseSix" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                                pilih menu feedback, maka akan muncul kritik dan saran dari pengguna, disertai nama dan nomor telepon dari pengguna
                                 </div>
                             </div>
                         </div>
@@ -262,13 +275,16 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseSeven">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        7. Aenean leo ligula
+                                        7. Bagaimana cara untuk menambah data jenis seni ?
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseSeven" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                                <li>pertama pilih menu post</li>
+                                <li>selanjutnya pilih jenis seni </li>
+                                <li>kemudian silahkan isi kolom add data jenis</li>
+                                <li>selanjutnya klik add  </li>
                                 </div>
                             </div>
                         </div>
@@ -276,13 +292,13 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseEight">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        8. Aliquam lorem ante
+                                        8. Dimana saya bisa melihat data postingan ?
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseEight" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
+                                silahkan pilih menu post , kemudian pilih done maka akan muncul data postingan 
                                 </div>
                             </div>
                         </div>

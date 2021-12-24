@@ -75,13 +75,18 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseOne">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        1. Lorem ipsum dolor sit amet
+                                        1. Bagaimana cara menambah postingan ?
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseOne" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                <li>pertama pilih menu postingan</li>
+                                <li>kemudian pilih add new </li>
+                                <li>silahkan lengkapi data dari postingan tersebut </li>
+                                <li>jika data sudah benar kemudian klik add </li>
+                                <li>postingan berhasil ditambahkan</li>
+                               
                                 </div>
                             </div>
                         </div>
@@ -89,13 +94,13 @@
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseTwo">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
-                                        2. Aenean massa
+                                        2. Dimana saya bisa melihat data transaksi
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapseTwo" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                silahkan pilih menu transaksi, maka disitu akan muncul data data transaksi
                                 </div>
                             </div>
                         </div>
