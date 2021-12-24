@@ -67,16 +67,16 @@
 							<input type="date" class="form-control" placeholder="yyyy-mm-dd" name="tgl_lahir" value="<?=$r['tgl_lahir']?>" required>
 							</div>
 						</div>
+					</div>
+					<div class="col-md-6">
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Address *</label>
 							<div class="col-sm-10">
 							<textarea type="text" class="form-control" placeholder="road:xxxx, distric:xxxx, regency:xxxx, province:xxxx"  name="alamat" required><?=$r['alamat']?></textarea>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-6">
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">telephone *</label>
+							<label class="col-sm-2 col-form-label">Telephone *</label>
 							<div class="col-sm-10">
 							<input type="text" class="form-control" placeholder="08xxxx...." name="telp" value="<?=$r['telp']?>" required>
 							</div>
@@ -84,21 +84,9 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Email *</label>
 							<div class="col-sm-10">
-							<input type="email" class="form-control" placeholder="example@example.example" name="email" value="<?=$r['email']?>" required>
+							<input type="email" class="form-control" placeholder="email@gmail.com" name="email" value="<?=$r['email']?>" required>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">Username *</label>
-							<div class="col-sm-10">
-							<input type="text" class="form-control" placeholder="Username" name="username" value="<?=$r['username']?>" required>
-							</div>
-						</div>
-						<!-- <div class="form-group row">
-							<label class="col-sm-2 col-form-label">Password *</label>
-							<div class="col-sm-10">
-							<input type="password" class="form-control" placeholder="Password" name="password" value="<?=$r['password']?>" required>
-							</div>
-						</div> -->
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Photo *</label>
 							<div class="col-sm-10">

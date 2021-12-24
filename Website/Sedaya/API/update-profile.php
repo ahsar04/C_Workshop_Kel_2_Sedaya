@@ -1,22 +1,16 @@
 <?php
 require_once("../admin/syntax.php");
 	header('Content-Type: aplication/json');
-	
+	$get_id=substr("$_SERVER[REQUEST_URI]",31);
     $content = trim(file_get_contents("php://input"));
     $decoded = json_decode($content,true);
-
-    $data=$syntax->view('mstr_user ORDER by usr_id desc limit 1');
-	foreach ($data as $r){
-		$get_id=$r['usr_id'];
-	}
-	$usr_id=$get_id + 1;
+	$usr_id=$get_id;
 	$nama=$decoded["nama"];
 	$username=$decoded['email'];
 	$email=$decoded['email'];
 	$telp=$decoded["telp"];
-	$pasword=md5($decoded['password']);
-	$cek_proses=$syntax->insert("mstr_user","usr_id,nama,telp,email,username,password,status",
-	"'$usr_id','$nama','$telp','$email','$username','$pasword','1'");
+	$cek_proses=$syntax->update("mstr_user","nama='$nama',telp='$telp',email='$email',username='$email'",
+	"usr_id='$usr_id'");
 	    if ($cek_proses ) {
             $cek_login = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
             // $num = mysqli_num_rows($cek_login);
@@ -33,7 +27,4 @@ require_once("../admin/syntax.php");
 				'Description'=>'Gagal'
 			));
         }
-    
-    
-       
 ?>

@@ -9,12 +9,10 @@ if($proses=='update'){
 	$telp=$_POST['telp'];
 	$email=$_POST['email'];
 	$alamat=$_POST['alamat'];
-	$username=$_POST['username'];
-	// $pasword=md5($_POST['password']);
-	// $status=2;
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $usr_id."_".$_FILES["foto"]["name"];
+        $filenameReplace = str_replace(' ', '_',$_FILES["foto"]["name"]);
+        $filename = date('His').rand(1,999)."_".$filenameReplace;
         $filetype = $_FILES["foto"]["type"];
         $filesize = $_FILES["foto"]["size"];
 		$foto=$filename;
@@ -36,7 +34,7 @@ if($proses=='update'){
             	$file='../public/img/user/'.$fotoawal;
             	unlink($file);
                 move_uploaded_file($_FILES["foto"]["tmp_name"], "../public/img/user/" . $filename);
-				$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',username='$username',foto='$foto'","usr_id='$usr_id'");
+				$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',foto='$foto'","usr_id='$usr_id'");
 				if($cek_proses){
 					header('location: ' .base_url('admin/index.php?page=user'));
 				}else{
@@ -88,12 +86,13 @@ if($proses=='update'){
 	$telp=$_POST['telp'];
 	$email=$_POST['email'];
 	$alamat=$_POST['alamat'];
-	$username=$_POST['username'];
+	$username=$_POST['email'];
 	$pasword=md5($_POST['password']);
 	$status=1;
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $usr_id."_".$_FILES["foto"]["name"];
+        $filenameReplace = str_replace(' ', '_',$_FILES["foto"]["name"]);
+        $filename = date('His').rand(1,999)."_".$filenameReplace;
         $filetype = $_FILES["foto"]["type"];
         $filesize = $_FILES["foto"]["size"];
 		$foto=$filename;
@@ -134,7 +133,8 @@ if($proses=='update'){
 	$alamat=$_POST['alamat'];
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $usr_id."_".$_FILES["foto"]["name"];
+        $filenameReplace = str_replace(' ', '_',$_FILES["foto"]["name"]);
+        $filename = date('His').rand(1,999)."_".$filenameReplace;
         $filetype = $_FILES["foto"]["type"];
         $filesize = $_FILES["foto"]["size"];
 		$foto=$filename;
@@ -183,7 +183,7 @@ if($proses=='update'){
 	$telp=$_POST["telp"];
 	$alamat=$_POST["alamat"];
 	$email=$_POST['email'];
-	$username=$_POST['username'];
+	$username=$_POST['email'];
 	$pasword=md5($_POST['password']);
 	$cek_proses=$syntax->insert("mstr_user","usr_id,nama,jk,tmp_lahir,tgl_lahir,telp,alamat,email,username,password,status",
 	"'$usr_id','$nama','$jk','$tmp_lahir','$tgl_lahir','$telp','$alamat','$email','$username','$pasword','1'");
@@ -239,13 +239,12 @@ if($proses=='update'){
 	$tmp_lahir=$_POST['tmp_lahir'];
 	$tgl_lahir=$_POST['tgl_lahir'];
 	$telp=$_POST['telp'];
-	$email=$_POST['email'];
+	// $email=$_POST['email'];
 	$alamat=$_POST['alamat'];
-	// $username=$_POST['username'];
-	// $pasword=md5($_POST['password']);
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $usr_id."_".$_FILES["foto"]["name"];
+        $filenameReplace = str_replace(' ', '_',$_FILES["foto"]["name"]);
+        $filename = date('His').rand(1,999)."_".$filenameReplace;
         $filetype = $_FILES["foto"]["type"];
         $filesize = $_FILES["foto"]["size"];
 		$foto=$filename;
@@ -267,7 +266,7 @@ if($proses=='update'){
             	$file='../public/img/user/'.$fotoawal;
             	unlink($file);
                 move_uploaded_file($_FILES["foto"]["tmp_name"], "../public/img/user/" . $filename);
-				$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',foto='$foto'","usr_id='$usr_id'");
+				$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',alamat='$alamat',foto='$foto'","usr_id='$usr_id'");
 				if($cek_proses){
 					header('location: ' .base_url('index.php?page=profile'));
 				}else{
@@ -278,7 +277,7 @@ if($proses=='update'){
         }
     } else{
                 
-		$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat'","usr_id='$usr_id'");
+		$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',alamat='$alamat'","usr_id='$usr_id'");
 		if($cek_proses){
 			header('location: ' .base_url('index.php?page=profile'));
 		}else{

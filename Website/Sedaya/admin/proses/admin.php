@@ -14,7 +14,8 @@ if($proses=='update'){
 	$status=$_POST['status'];
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $adm_id."_".date("Y-m-d H:i:s");
+        $filenameReplace = str_replace(' ', '_',$_FILES["foto"]["name"]);
+        $filename = date('His').rand(1,999)."_".$filenameReplace;
         $filetype = $_FILES["foto"]["type"];
         $filesize = $_FILES["foto"]["size"];
 		$foto=$filename;
@@ -100,7 +101,8 @@ if($proses=='update'){
 	$status=2;
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $adm_id."_".$_FILES["foto"]["name"];
+        $filenameReplace = str_replace(' ', '_',$_FILES["foto"]["name"]);
+        $filename = date('His').rand(1,999)."_".$filenameReplace;
         $filetype = $_FILES["foto"]["type"];
         $filesize = $_FILES["foto"]["size"];
 		$foto=$filename;

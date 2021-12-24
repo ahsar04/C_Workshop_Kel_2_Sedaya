@@ -47,6 +47,10 @@
                       <td> : <?=$r['jenis']?></td>
                     </tr>
                     <tr>
+                      <td><b>Alamat</b></td>
+                      <td> : <?=$r['alamat']?></td>
+                    </tr>
+                    <tr>
                       <td><b>harga</b></td>
                       <td> : Rp. <?=number_format($r['harga'],2,".",",")?><p class="text-danger text-xs">*harga yang tertera belum termasuk transport</p></td>
                     </tr>

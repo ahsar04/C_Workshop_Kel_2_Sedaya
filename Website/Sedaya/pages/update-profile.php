@@ -71,15 +71,6 @@
                     />
                   </div>
                   <div>
-                    <input
-                      type="email"
-                      class="form-control"
-                      name="email"
-                      value="<?=$r['email']?>"
-                      placeholder="Your Email*"required
-                    />
-                  </div>
-                  <div>
                     <textarea 
                       class="form-control"
                       name="alamat"

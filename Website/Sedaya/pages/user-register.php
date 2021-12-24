@@ -42,7 +42,7 @@
                     <input
                       type="date"
                       class="form-control"
-                      name="tgl_lagir"
+                      name="tgl_lahir"
                       placeholder="Date of Birt*"required
                     />
                   </div>
@@ -68,14 +68,6 @@
                       class="form-control"
                       name="email"
                       placeholder="Your Email*"required
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="username"
-                      placeholder="Username*"required
                     />
                   </div>
                   <div>

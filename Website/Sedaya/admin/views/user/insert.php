@@ -57,14 +57,14 @@
 							<input type="date" class="form-control" placeholder="yyyy-mm-dd" name="tgl_lahir" required>
 							</div>
 						</div>
+					</div>
+					<div class="col-md-6">
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Address *</label>
 							<div class="col-sm-10">
 							<textarea type="text" class="form-control" placeholder="road:xxxx, distric:xxxx, regency:xxxx, province:xxxx"  name="alamat" required></textarea>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-6">
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">telephone *</label>
 							<div class="col-sm-10">
@@ -75,12 +75,6 @@
 							<label class="col-sm-2 col-form-label">Email *</label>
 							<div class="col-sm-10">
 							<input type="email" class="form-control" placeholder="example@example.example" name="email" required>
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">Username *</label>
-							<div class="col-sm-10">
-							<input type="text" class="form-control" placeholder="Username" name="username" required>
 							</div>
 						</div>
 						<div class="form-group row">

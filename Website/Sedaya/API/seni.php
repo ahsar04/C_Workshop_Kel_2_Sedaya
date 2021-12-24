@@ -22,6 +22,12 @@ if ($data) {
         'message'=>'berhasil',
         'data   '=>$result
     ));
+}else{
+    http_response_code(404);
+    echo json_encode(array(
+        'code'=>'400',
+        'message'=>'berhasil'
+    ));
 }
        
 ?>
