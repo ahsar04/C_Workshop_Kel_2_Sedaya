@@ -25,26 +25,46 @@ require_once("../admin/syntax.php");
 
                 $q = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
                 $r = $q->fetch_array();
-                $fotoawal=$r['foto'];
-            	$file='../admin/public/img/user/'.$fotoawal;
-            	unlink($file);
-                move_uploaded_file($_FILES["image"]["tmp_name"], "../admin/public/img/user/" . $filename);
-				$cek_proses=$syntax->update("mstr_user", "foto='$foto'", "usr_id='$usr_id'");		
-				if($cek_proses){
-					$cek_login = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
-					// $num = mysqli_num_rows($cek_login);
-					$row = $cek_login->fetch_array();
-						echo json_encode(array('code'=>'200',
-							'message'=>'Berhasil',
-							'data'=>$row
-       				 ));
+				if ($fotoawal=$r['foto']==''||$fotoawal=$r['foto']==null) {
+					move_uploaded_file($_FILES["image"]["tmp_name"], "../admin/public/img/user/" . $filename);
+					$cek_proses=$syntax->update("mstr_user", "foto='$foto'", "usr_id='$usr_id'");		
+					if($cek_proses){
+						$cek_login = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
+						// $num = mysqli_num_rows($cek_login);
+						$row = $cek_login->fetch_array();
+							echo json_encode(array('code'=>'200',
+								'message'=>'Berhasil',
+								'data'=>$row
+						));
+					}else{
+						http_response_code(404);
+						echo json_encode(array( 
+							'ok'=>false,
+							'error_code'=>404,
+							'Description'=>'Gagal'
+						));
+					}
 				}else{
-					http_response_code(404);
-					echo json_encode(array( 
-						'ok'=>false,
-						'error_code'=>404,
-						'Description'=>'Gagal'
-					));
+					$file='../admin/public/img/user/'.$fotoawal;
+					unlink($file);
+					move_uploaded_file($_FILES["image"]["tmp_name"], "../admin/public/img/user/" . $filename);
+					$cek_proses=$syntax->update("mstr_user", "foto='$foto'", "usr_id='$usr_id'");		
+					if($cek_proses){
+						$cek_login = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
+						// $num = mysqli_num_rows($cek_login);
+						$row = $cek_login->fetch_array();
+							echo json_encode(array('code'=>'200',
+								'message'=>'Berhasil',
+								'data'=>$row
+						));
+					}else{
+						http_response_code(404);
+						echo json_encode(array( 
+							'ok'=>false,
+							'error_code'=>404,
+							'Description'=>'Gagal'
+						));
+					}
 				}
         // } else{
         //     echo "Error: There was a problem uploading your file. Please try again."; 

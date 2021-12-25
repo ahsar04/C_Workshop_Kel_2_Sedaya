@@ -119,7 +119,6 @@
                             <i class="far fa-chart-bar"></i>
                             Transaksi Mingguan
                             </h3>
-
                             <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
@@ -164,7 +163,6 @@
                     <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">FAQ</h3>
-
                         <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
                         </button>
@@ -173,7 +171,6 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        
                     <div class="card card-primary card-outline">
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseOne">
                                 <div class="card-header">
@@ -227,7 +224,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card card-warning card-outline">
+                        <div class="card card-primary card-outline">
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseFour">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
@@ -242,7 +239,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card card-warning card-outline">
+                        <div class="card card-primary card-outline">
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseFive">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
@@ -257,7 +254,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card card-warning card-outline">
+                        <div class="card card-primary card-outline">
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseSix">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
@@ -271,7 +268,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card card-danger card-outline">
+                        <div class="card card-primary card-outline">
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseSeven">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
@@ -288,7 +285,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card card-danger card-outline">
+                        <div class="card card-primary card-outline">
                             <a class="d-block w-100" data-toggle="collapse" href="#collapseEight">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
@@ -302,26 +299,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card card-danger card-outline">
-                            <a class="d-block w-100" data-toggle="collapse" href="#collapseNine">
-                                <div class="card-header">
-                                    <h4 class="card-title w-100">
-                                        9.  Quisque rutrum
-                                    </h4>
-                                </div>
-                            </a>
-                            <div id="collapseNine" class="collapse" data-parent="#accordion">
-                                <div class="card-body">
-                                    Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
                     <!-- /.card-body -->
                     </div>
-                        
                     </div>
                 </div>
                 <!-- /.col -->
@@ -335,7 +315,6 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-md-6"></div>
-            
         </div>
       </div>
       <!-- /.container-fluid -->
