@@ -5,12 +5,22 @@
       <map>
         <entry key="..\:/Users/Ahmad Saifur Rohman/AndroidStudioProjects/sedaya/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/Ahmad Saifur Rohman/AndroidStudioProjects/sedaya/app/src/main/res/xml/network_security.xml" value="0.1" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/drawable/ic_shopping_cart.xml" value="0.21388888888888888" />
         <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/activity_navigation.xml" value="0.22" />
-        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/activity_update_profile.xml" value="0.25" />
         <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/fragment_notifications.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/item_home_category.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/item_home_produk_terbaru.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/item_home_produk_terlaris.xml" value="0.2384428223844282" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/item_home_slider.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/layout_home_member.xml" value="0.25" />
+        <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/layout/layout_home_toolbar.xml" value="0.25" />
         <entry key="..\:/Users/Hasan/AndroidStudioProjects/sedaya/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
       </map>
     </option>

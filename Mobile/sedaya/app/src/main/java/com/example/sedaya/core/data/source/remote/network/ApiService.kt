@@ -1,13 +1,13 @@
 package com.example.sedaya.core.data.source.remote.network
 
 import com.example.sedaya.core.data.source.remote.request.LoginRequest
+import com.example.sedaya.core.data.source.remote.request.RegisterRequest
+import com.example.sedaya.core.data.source.remote.request.UpdateProfileRequest
 import com.example.sedaya.core.data.source.remote.response.LoginResponse
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -17,8 +17,21 @@ interface ApiService {
     ): Response<LoginResponse>
 
     //https://localhost/Sedaya/API/register
-    @POST("register")
+    @POST("register.php")
     suspend fun register(
-        //@Body user: User
-    ): Response<RequestBody>
+        @Body data: RegisterRequest
+    ): Response<LoginResponse>
+
+    @PUT("update-profile.php/{usr_id}")
+    suspend fun updateUser(
+        @Path("usr_id") int: Int,
+        @Body data: UpdateProfileRequest
+    ): Response<LoginResponse>
+
+    @Multipart
+    @POST("upload-profile.php/{usr_id}")
+    suspend fun uploadUser(
+        @Path("usr_id") int: Int? = null,
+        @Part data: MultipartBody.Part? = null
+    ): Response<LoginResponse>
 }

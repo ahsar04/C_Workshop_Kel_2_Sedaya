@@ -25,6 +25,7 @@ data class User(
     val foto: String?,
     val jk: String?,
     val nama: String?,
+    val image: String?,
     val nama_snm: String?,
     val password: String?,
     val snm_foto: String?,

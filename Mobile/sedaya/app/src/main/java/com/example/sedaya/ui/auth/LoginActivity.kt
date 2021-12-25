@@ -1,20 +1,17 @@
-package com.example.sedaya.ui.login
+package com.example.sedaya.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.example.sedaya.R
+import com.example.sedaya.NavigationActivity
 import com.example.sedaya.core.data.source.remote.network.State
 import com.example.sedaya.core.data.source.remote.request.LoginRequest
 import com.example.sedaya.databinding.ActivityLoginBinding
-import com.example.sedaya.databinding.FragmentDashboardBinding
-import com.example.sedaya.util.Prefs
 import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
 
-    private val viewModel : LoginViewModel by viewModel()
+    private val viewModel : AuthViewModel by viewModel()
 
     private var _binding: ActivityLoginBinding? = null
     private val binding get() = _binding!!
@@ -25,16 +22,20 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setData()
+        mainButton()
     }
 
-    private fun setData() {
-        viewModel.text.observe(this,{
-            binding.edtUsername.setText(it)
-        })
-
+    private fun mainButton() {
         binding.btnMasuk.setOnClickListener {
             login()
         }
+        binding.btnDaftar.setOnClickListener {
+            intentActivity(RegisterActivity::class.java)
+        }
+    }
+
+    private fun setData() {
+
     }
 
     private fun login() {
@@ -51,15 +52,16 @@ class LoginActivity : AppCompatActivity() {
 
             when (it.state) {
                 State.SUCCESS -> {
-                    binding.pd.toGone()
+                    dismisLoading()
                     showToast("Selamat datang " + it?.data?.nama)
+                    pushActivity(NavigationActivity::class.java)
                 }
                 State.ERROR -> {
-                    binding.pd.toGone()
+                    dismisLoading()
                     toastError(it?.message?: "Error")
                 }
                 State.LOADING -> {
-                    binding.pd.toVisible()
+                    showLoading()
                 }
             }
         })

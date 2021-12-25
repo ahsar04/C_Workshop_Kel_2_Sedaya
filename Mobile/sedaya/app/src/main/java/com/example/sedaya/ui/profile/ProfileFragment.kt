@@ -8,12 +8,20 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.sedaya.databinding.FragmentNotificationsBinding
+import com.example.sedaya.NavigationActivity
+import com.example.sedaya.databinding.FragmentProfileBinding
+import com.example.sedaya.ui.updateProfile.UpdateProfileActivity
+import com.example.sedaya.util.Constans.USER_URL
+import com.example.sedaya.util.Prefs
+import com.inyongtisto.myhelper.extension.getInitial
+import com.inyongtisto.myhelper.extension.intentActivity
+import com.inyongtisto.myhelper.extension.pushActivity
+import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
 
     private lateinit var notificationsViewModel: ProfileViewModel
-    private var _binding: FragmentNotificationsBinding? = null
+    private var _binding: FragmentProfileBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -27,14 +35,41 @@ class ProfileFragment : Fragment() {
         notificationsViewModel =
             ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        mainButton()
         return root
+    }
+
+    override fun onResume() {
+        setUser()
+        super.onResume()
+    }
+
+    private fun mainButton() {
+        binding.btnLogout.setOnClickListener {
+            Prefs.isLogin = false
+            pushActivity(NavigationActivity::class.java)
+        }
+
+        binding.btnUpdate.setOnClickListener {
+            intentActivity(UpdateProfileActivity::class.java)
+        }
+    }
+
+    private fun setUser(){
+        val user = Prefs.getUser()
+        if (user != null) {
+            binding.apply {
+                tvName.text = user.nama
+                tvPhone.text = user.telp
+                tvEmail.text = user.email
+                tvInisial.text = user.nama.getInitial()
+
+                Picasso.get().load(USER_URL + user.foto).into(binding.imageProfile)
+            }
+        }
     }
 
     override fun onDestroyView() {
