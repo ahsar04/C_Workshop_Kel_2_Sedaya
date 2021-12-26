@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_3sdp"
-                android:text="Kontrakan Tisto"
+                android:text="Kontrakan Bahagia"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11ssp"
                 android:textStyle="bold" />
@@ -84,8 +84,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8sdp"
                         android:text="Rp.0"
-                        android:textStyle="bold"
                         android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/image_poin"
                         app:layout_constraintTop_toTopOf="parent" />
 

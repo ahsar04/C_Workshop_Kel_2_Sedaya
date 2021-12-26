@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeBubdomains="true">ws-tif.com</domain>
+        <domain includeBubdomains="true">192.168.43.23</domain>
     </domain-config>
 </network-security-config>

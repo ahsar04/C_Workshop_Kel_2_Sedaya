@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">sedaya</string>
-    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_activity_navigation">Sedaya</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="cari_produk_disini">Cari produk disini</string>
+    <string name="cari_seni_disini">Cari seni disini</string>
     <string name="buka_toko_gratis">Buka Toko Gratis</string>
     <string name="mau_mulai_berbisnis">Mau Mulai Berbisnis?</string>
 </resources>

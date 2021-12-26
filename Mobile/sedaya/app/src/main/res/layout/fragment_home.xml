@@ -30,7 +30,7 @@
                 android:visibility="visible"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="5"
-                tools:itemCount="10"
+                tools:itemCount="5"
                 tools:listitem="@layout/item_home_category" />
 
 
@@ -68,7 +68,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Terlaris hari ini"
+                    android:text="Populer bulan ini"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp"
                     android:textStyle="bold" />
@@ -79,7 +79,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:text="Lihat Semua"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimary_700"
                     android:textSize="@dimen/_13sdp"
                     android:textStyle="bold" />
 
@@ -130,7 +130,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:text="Lihat Semua"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimary_700"
                     android:textSize="@dimen/_13sdp"
                     android:textStyle="bold" />
 

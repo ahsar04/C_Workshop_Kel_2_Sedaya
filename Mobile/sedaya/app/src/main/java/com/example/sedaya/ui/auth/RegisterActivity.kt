@@ -24,6 +24,13 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setData()
+        mainButton()
+    }
+
+    private fun mainButton() {
+        binding.btnKliksini.setOnClickListener {
+            intentActivity(LoginActivity::class.java)
+        }
     }
 
     private fun setData() {

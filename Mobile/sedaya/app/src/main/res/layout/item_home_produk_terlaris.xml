@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_minus15sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:backgroundTint="#E1A902"
+                android:backgroundTint="#3cb29a"
                 app:cardCornerRadius="@dimen/_10sdp">
 
                 <TextView
@@ -41,7 +41,7 @@
                     android:layout_marginVertical="@dimen/_3sdp"
                     android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
-                    android:text="Terlaris"
+                    android:text="Populer"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12ssp"
                     android:textStyle="bold" />
@@ -116,7 +116,7 @@
                     android:id="@+id/ly_grosir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/greenSoftSecondary"
+                    android:backgroundTint="@color/blueSoftSecondary"
                     app:cardElevation="0dp">
 
                     <TextView
@@ -124,8 +124,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_3sdp"
                         android:layout_marginVertical="@dimen/_3sdp"
-                        android:text="Grosir"
-                        android:textColor="@color/greenSoft"
+                        android:text="Kelompok"
+                        android:textColor="@color/blueSoft"
                         android:textSize="@dimen/_10sdp"
                         android:textStyle="bold" />
 

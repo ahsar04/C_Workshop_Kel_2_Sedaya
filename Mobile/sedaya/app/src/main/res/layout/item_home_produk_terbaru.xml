@@ -44,6 +44,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/_3sdp"
                 android:text="Nama produk"
+                android:ellipsize="end"
+                android:maxLines="3"
                 android:textSize="@dimen/_11ssp" />
 
             <TextView
@@ -98,7 +100,7 @@
                 android:id="@+id/ly_grosir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/greenSoftSecondary"
+                android:backgroundTint="@color/blueSoftSecondary"
                 app:cardElevation="0dp">
 
                 <TextView
@@ -106,8 +108,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_3sdp"
                     android:layout_marginVertical="@dimen/_3sdp"
-                    android:text="Grosir"
-                    android:textColor="@color/greenSoft"
+                    android:text="Kelompok"
+                    android:textColor="@color/blueSoft"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold" />
 

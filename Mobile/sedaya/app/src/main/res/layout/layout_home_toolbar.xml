@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary_700"
+    android:background="@color/colorPrimary_800"
     android:orientation="vertical"
     android:paddingHorizontal="@dimen/_10sdp"
     android:paddingVertical="@dimen/_8sdp">
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/cari_produk_disini"
+                android:text="@string/cari_seni_disini"
                 android:textSize="@dimen/_12sdp" />
 
         </LinearLayout>

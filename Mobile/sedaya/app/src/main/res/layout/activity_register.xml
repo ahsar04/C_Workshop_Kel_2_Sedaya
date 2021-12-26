@@ -97,6 +97,7 @@
                 android:text="Sudah punya akun?" />
 
             <TextView
+                android:id="@+id/btn_kliksini"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Klik disini"
