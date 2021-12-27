@@ -1,16 +1,17 @@
 <?php
 require_once("../admin/syntax.php");
 	header('Content-Type: aplication/json');
-    $data = $syntax->view("seni,jenis where seni.jns_id=jenis.jns_id ORDER BY sn_id DESC");
+    $data = $syntax->view("seni,jenis,mstr_seniman where seni.jns_id=jenis.jns_id and seni.snm_id=mstr_seniman.snm_id ORDER BY sn_id DESC");
 if ($data) {
     $result = array();
     while ($row = mysqli_fetch_array($data)) {
         array_push($result, array(
             'sn_id'=>$row['sn_id'],
             'snm_id'=>$row['snm_id'],
+            'nama_snm'=>$row['nama_snm'],
+            'alamat'=>$row['alamat'],
             'judul'=>$row['judul'],
             'kategori'=>$row['kategori'],
-            'jns_id'=>$row['jns_id'],
             'jenis'=>$row['jenis'],
             'keterangan'=>$row['keterangan'],
             'harga'=>$row['harga'],
@@ -19,13 +20,14 @@ if ($data) {
         ));
     }
     echo json_encode(array(
+        'code'=>'200',
         'message'=>'berhasil',
         'data   '=>$result
     ));
 }else{
     http_response_code(404);
     echo json_encode(array(
-        'code'=>'400',
+        'code'=>'404',
         'message'=>'berhasil'
     ));
 }
