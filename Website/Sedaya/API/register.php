@@ -13,10 +13,11 @@ require_once("../admin/syntax.php");
 	$nama=$decoded["nama"];
 	$username=$decoded['email'];
 	$email=$decoded['email'];
+	$alamat=$decoded['alamat'];
 	$telp=$decoded["telp"];
-	$pasword=md5($decoded['password']);
-	$cek_proses=$syntax->insert("mstr_user","usr_id,nama,telp,email,username,password,status",
-	"'$usr_id','$nama','$telp','$email','$username','$pasword','1'");
+	$password=md5($decoded['password']);
+	$cek_proses=$syntax->insert("mstr_user","usr_id,nama,telp,email,alamat,username,password,status",
+	"'$usr_id','$nama','$telp','$email','$alamat','$username','$password','1'");
 	    if ($cek_proses ) {
             $cek_login = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
             // $num = mysqli_num_rows($cek_login);

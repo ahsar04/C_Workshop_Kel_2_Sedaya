@@ -6,10 +6,11 @@ require_once("../admin/syntax.php");
     $decoded = json_decode($content,true);
 	$usr_id=$get_id;
 	$nama=$decoded["nama"];
+	$alamat=$decoded['alamat'];
 	$username=$decoded['email'];
 	$email=$decoded['email'];
 	$telp=$decoded["telp"];
-	$cek_proses=$syntax->update("mstr_user","nama='$nama',telp='$telp',email='$email',username='$email'",
+	$cek_proses=$syntax->update("mstr_user","nama='$nama',alamat='$alamat',telp='$telp',email='$email',username='$email'",
 	"usr_id='$usr_id'");
 	    if ($cek_proses ) {
             $cek_login = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
