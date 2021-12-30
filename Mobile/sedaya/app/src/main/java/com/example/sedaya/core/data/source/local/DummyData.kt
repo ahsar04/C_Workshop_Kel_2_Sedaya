@@ -2,7 +2,7 @@ package com.example.sedaya.core.data.source.local
 
 import com.example.sedaya.R
 import com.example.sedaya.core.data.source.model.Category
-import com.example.sedaya.core.data.source.model.Product
+import com.example.sedaya.core.data.source.model.Seni
 import com.example.sedaya.core.data.source.model.Slider
 
 object DummyData {
@@ -20,14 +20,14 @@ object DummyData {
             Slider(id = "3", name = "Slider3", image = R.drawable.asset_slider3),
     )
 
-    val listProduct = listOf(
-            Product(id = "1", name = "Tari Saman adalah sebuah tarian suku Gayo yang biasa ditampilkan untuk merayakan peristiwa-peristiwa penting dalam adat", harga = 800000, pengiriman = "Jember", terjual = 30, rating = 5.0, discount = 0, grosir = true, image = R.drawable.asset_produk1),
-            Product(id = "2", name = "Reog Ponorogo adalah tari tradisional yang berasal dari daerah Barat-Laut Provinsi Jawa Timur dan Ponorogo.", harga = 1200000, pengiriman = "Ponorogo", terjual = 9, rating = 5.0, discount = 10, grosir = true, image = R.drawable.asset_produk2),
-            Product(id = "3", name = "Tari pendet adalah salah satu tari yang memiliki gerakan yang indah. Tarian ini juga menjadi salah satu budaya kebanggaan Indonesia.", harga = 800000, pengiriman = "Lumajang", terjual = 53, rating = 5.0, discount = 15, grosir = false, image = R.drawable.asset_produk3),
-            Product(id = "4", name = "Tari kecak adalah seni tari yang berasal dari Bali. Seni tari kecak ini dipertunjukkan oleh puluhan penari laki-laki", harga = 1000000, pengiriman = "Kab.Probolinggo", terjual = 80, rating = 5.0, discount = 0, grosir = true, image = R.drawable.asset_produk4),
-            Product(id = "5", name = "Musik patrol adalah kesenian musik tradisional yang menggunakan alat musik sederhana yaitu kentongan.", harga = 450000, pengiriman = "Bondowoso", terjual = 68, rating = 5.0, discount = 15, grosir = false, image = R.drawable.asset_produk5),
-            Product(id = "6", name = "Ludruk adalah pertunjukan spekatakuler melibatkan drama dari berbagai lakon yang bertemakan mengenai kerajaan", harga = 200000, pengiriman = "Malang", terjual = 50, rating = 5.0, discount = 20, grosir = false, image = R.drawable.asset_produk6),
-            Product(id = "7", name = "Wayang Kulit. Wayang adalah pertunjukan drama tradisionil yang populer sekali di Indonesia.", harga = 300000, pengiriman = "Banyuwangi", terjual = 22, rating = 5.0, discount = 0, grosir = true, image = R.drawable.asset_produk7),
-            Product(id = "8", name = "Hadrah banjari merupakan jenis hadroh yang menekankan pada nada pelan dan seirama sehingga membuat pendengar merasa nyaman dengan ritmenya", harga = 500000, pengiriman = "Jombang", terjual = 11, rating = 5.0, discount = 10, grosir = false, image = R.drawable.asset_produk8),
+    val listSeni = listOf(
+            Seni(sn_id = "1", snm_id = "1", nama_snm = "Raden Saifur", alamat = "Jember", judul = "Tari Saman", kategori = "Kelompok", jenis = "Tari", keterangan = "DESCRIPTION IN HERE",  harga = 800000, image = R.drawable.asset_produk1, status = "Ready"),
+            Seni(sn_id = "2", snm_id = "1", nama_snm = "Ahmad Dani", alamat = "Probolinggo", judul = "Reog Ponorogo", kategori = "Kelompok", jenis = "Rohani", keterangan = "DESCRIPTION IN HERE",  harga = 700000, image = R.drawable.asset_produk2, status = "Dipesan"),
+            Seni(sn_id = "3", snm_id = "1", nama_snm = "Akbar Valen", alamat = "Bondowoso", judul = "Tari Pendet", kategori = "Kelompok", jenis = "Tari", keterangan = "DESCRIPTION IN HERE",  harga = 400000, image = R.drawable.asset_produk3, status = "Dipesan"),
+            Seni(sn_id = "4", snm_id = "1", nama_snm = "Ryo Pamungkas", alamat = "Jombang", judul = "Tari Kecak", kategori = "Kelompok", jenis = "Tari", keterangan = "DESCRIPTION IN HERE",  harga = 100000, image = R.drawable.asset_produk4, status = "Ready"),
+            Seni(sn_id = "5", snm_id = "1", nama_snm = "Ahmad Syafii", alamat = "Situbondo", judul = "Musik Patrol", kategori = "Kelompok", jenis = "Musik", keterangan = "DESCRIPTION IN HERE",  harga = 300000, image = R.drawable.asset_produk5, status = "Ready"),
+            Seni(sn_id = "6", snm_id = "1", nama_snm = "Umar Said", alamat = "Malang", judul = "Ludruk", kategori = "Individu", jenis = "Tari", keterangan = "DESCRIPTION IN HERE",  harga = 600000, image = R.drawable.asset_produk6, status = "Dipesan"),
+            Seni(sn_id = "7", snm_id = "1", nama_snm = "Fandi Arsyad", alamat = "Lumajang", judul = "Wayang Kulit", kategori = "Kelompok", jenis = "Wayang", keterangan = "DESCRIPTION IN HERE",  harga = 900000, image = R.drawable.asset_produk7, status = "Ready"),
+            Seni(sn_id = "8", snm_id = "1", nama_snm = "Nikmatul Arsyi", alamat = "Kediri", judul = "Hadroh Banjari", kategori = "Kelompok", jenis = "Musik", keterangan = "DESCRIPTION IN HERE",  harga = 400000, image = R.drawable.asset_produk8, status = "Dipesan"),
     )
 }

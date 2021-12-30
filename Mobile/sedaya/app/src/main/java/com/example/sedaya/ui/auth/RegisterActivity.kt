@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sedaya.NavigationActivity
 import com.example.sedaya.core.data.source.remote.network.State
-import com.example.sedaya.core.data.source.remote.request.LoginRequest
 import com.example.sedaya.core.data.source.remote.request.RegisterRequest
-import com.example.sedaya.databinding.ActivityLoginBinding
 import com.example.sedaya.databinding.ActivityRegisterBinding
 import com.inyongtisto.myhelper.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -44,12 +42,14 @@ class RegisterActivity : AppCompatActivity() {
         if (binding.edtNama.isEmpty()) return
         if (binding.edtEmail.isEmpty()) return
         if (binding.edtTelp.isEmpty()) return
+        if (binding.edtAlamat.isEmpty()) return
         if (binding.edtPassword.isEmpty()) return
 
         val body = RegisterRequest(
             binding.edtNama.text.toString(),
             binding.edtEmail.text.toString(),
             binding.edtTelp.text.toString(),
+            binding.edtAlamat.text.toString(),
             binding.edtPassword.text.toString()
         )
 

@@ -108,6 +108,21 @@
                 android:paddingStart="0dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/white"
+                android:hint="Alamat"
+                android:inputType="textEmailAddress"
+                android:paddingStart="0dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/btn_simpan"
             android:layout_width="match_parent"

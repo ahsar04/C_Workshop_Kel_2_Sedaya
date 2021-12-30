@@ -6,6 +6,7 @@ import com.example.sedaya.core.data.source.remote.request.UpdateProfileRequest
 import com.example.sedaya.core.data.source.remote.response.LoginResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -34,4 +35,7 @@ interface ApiService {
         @Path("usr_id") int: Int? = null,
         @Part data: MultipartBody.Part? = null
     ): Response<LoginResponse>
+
+    @GET("seni")
+    fun getSeni():Response<LoginResponse>
 }

@@ -41,7 +41,7 @@
                     android:layout_marginVertical="@dimen/_3sdp"
                     android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
-                    android:text="Populer"
+                    android:text="Rekomendasi"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12ssp"
                     android:textStyle="bold" />
@@ -55,13 +55,13 @@
                 android:padding="@dimen/_5sdp">
 
                 <TextView
-                    android:id="@+id/tv_name"
+                    android:id="@+id/tv_judul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_3sdp"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:text="Nama produk"
+                    android:text="Judul Seni"
                     android:textSize="@dimen/_11ssp" />
 
                 <TextView
@@ -116,27 +116,28 @@
                     android:id="@+id/ly_grosir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/blueSoftSecondary"
+                    android:backgroundTint="@color/pinkSoftSecondary"
                     app:cardElevation="0dp">
 
                     <TextView
+                        android:id="@+id/tv_alamat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_3sdp"
                         android:layout_marginVertical="@dimen/_3sdp"
-                        android:text="Kelompok"
-                        android:textColor="@color/blueSoft"
+                        android:text="Probolinggo"
+                        android:textColor="@color/pinkSoft"
                         android:textSize="@dimen/_10sdp"
                         android:textStyle="bold" />
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <TextView
-                    android:id="@+id/tv_pengiriman"
+                    android:id="@+id/tv_kategori"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_3sdp"
-                    android:text="Jakarta pusat"
+                    android:text="Kelompok"
                     android:textSize="@dimen/_9sdp" />
 
                 <LinearLayout
@@ -146,17 +147,18 @@
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="@dimen/_10sdp"
+                        android:layout_width="9dp"
                         android:layout_height="@dimen/_10sdp"
                         android:src="@drawable/ic_baseline_star_24"
-                        app:tint="#FFC107" />
+                        app:tint="#266D98" />
 
                     <TextView
-                        android:id="@+id/tv_reting"
+                        android:id="@+id/tv_namasnm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_2sdp"
-                        android:text="5.0 | Terjual 1.1K"
+                        android:text="Oleh Raden Saifur"
+                        android:maxLines="1"
                         android:textSize="@dimen/_9sdp" />
 
                 </LinearLayout>

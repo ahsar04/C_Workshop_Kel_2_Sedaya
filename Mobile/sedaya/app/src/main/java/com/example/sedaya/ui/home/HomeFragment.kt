@@ -6,11 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.sedaya.core.data.source.remote.network.ApiConfig
+import com.example.sedaya.core.data.source.remote.response.LoginResponse
 import com.example.sedaya.databinding.FragmentHomeBinding
 import com.example.sedaya.ui.home.adapter.CategoryAdapter
 import com.example.sedaya.ui.home.adapter.ProdukTerbaruAdapter
 import com.example.sedaya.ui.home.adapter.ProdukTerlarisAdapter
 import com.example.sedaya.ui.home.adapter.SliderAdapter
+import com.example.sedaya.util.Constans
+import com.example.sedaya.util.Prefs
+import com.inyongtisto.myhelper.extension.getInitial
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
+import retrofit2.Call
 
 class HomeFragment : Fragment() {
 
@@ -34,11 +42,15 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
         setupAdapter()
         setData()
         mainButton()
         return root
     }
+
+
+
 
     private fun setupAdapter() {
         binding.rvCategory.adapter = adapterCategory

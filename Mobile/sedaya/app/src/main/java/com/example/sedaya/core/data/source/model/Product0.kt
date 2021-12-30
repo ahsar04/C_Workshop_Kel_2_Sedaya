@@ -1,6 +1,6 @@
 package com.example.sedaya.core.data.source.model
 
-data class Product (
+data class Product0 (
     val id: String? = null,
     val name: String?,
     val harga: Int?,

@@ -65,6 +65,7 @@ class ProfileFragment : Fragment() {
                 tvName.text = user.nama
                 tvPhone.text = user.telp
                 tvEmail.text = user.email
+                tvAlamat.text = user.alamat
                 tvInisial.text = user.nama.getInitial()
 
                 Picasso.get().load(USER_URL + user.foto).into(binding.imageProfile)

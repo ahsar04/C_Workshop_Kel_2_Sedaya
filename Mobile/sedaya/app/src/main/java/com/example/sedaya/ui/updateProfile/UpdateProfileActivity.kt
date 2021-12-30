@@ -47,6 +47,7 @@ class UpdateProfileActivity : MyActivity() {
                 edtNama.setText(user.nama)
                 edtTelp.setText(user.telp)
                 edtEmail.setText(user.email)
+                edtAlamat.setText(user.alamat)
                 tvInisial.text = user.nama.getInitial()
                 Picasso.get().load(Constans.USER_URL+user.foto).into(binding.imageProfile)
             }
@@ -88,6 +89,7 @@ class UpdateProfileActivity : MyActivity() {
         if (binding.edtNama.isEmpty()) return
         if (binding.edtEmail.isEmpty()) return
         if (binding.edtTelp.isEmpty()) return
+        if (binding.edtAlamat.isEmpty()) return
 
         val idUser = Integer.parseInt(Prefs.getUser()?.usr_id)
         val body = UpdateProfileRequest(
@@ -95,6 +97,7 @@ class UpdateProfileActivity : MyActivity() {
             binding.edtNama.text.toString(),
             binding.edtEmail.text.toString(),
             binding.edtTelp.text.toString(),
+            binding.edtAlamat.text.toString(),
         )
 
         viewModel.updateUser(body).observe(this, {

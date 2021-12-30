@@ -5,4 +5,5 @@ data class UpdateProfileRequest(
     val nama: String? = null,
     val email: String? = null,
     val telp: String? = null,
+    val alamat: String? = null,
     )
