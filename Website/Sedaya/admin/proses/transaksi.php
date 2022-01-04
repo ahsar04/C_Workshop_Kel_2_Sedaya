@@ -31,6 +31,9 @@ if($proses=='update'){
 		$date=date('Ymd');
 		$ai=1;
 	}
+	if (strlen($ai)==1) {
+		$ai='0'.$ai;
+	}
 	$no_transaksi=$date.$ai;
 	$sn_id=$_POST["sn_id"];
 	$usr_id=$_POST["usr_id"];

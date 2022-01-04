@@ -91,6 +91,7 @@
 							<label class="col-sm-2 col-form-label">Photo *</label>
 							<div class="col-sm-10">
 							<input type="file" class="form-control"  name="foto">
+								<span style="color:red;"><i> *kosongi jika tetap</i></span>
 							</div>
 						</div>
 					</div>

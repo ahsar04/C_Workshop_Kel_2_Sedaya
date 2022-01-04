@@ -84,7 +84,7 @@
                         <div class="info-box-content" style="color:black;">
                             <span class="info-box-text">Transaksi selesai</span>
                             <span class="info-box-number">
-                            <?php $show=$syntax->view("transaksi where t_status=1");
+                            <?php $show=$syntax->view("transaksi where t_status=2");
                                 echo mysqli_num_rows($show);
                             ?></span>
                         </div>

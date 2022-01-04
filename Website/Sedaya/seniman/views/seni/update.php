@@ -22,26 +22,31 @@
               <!-- /.card-header -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add data seni</h3>
+                <h3 class="card-title">Edit data seni</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="POST" action="<?=base_url('seniman/proses/seni.php?proses=insert');?>" enctype="multipart/form-data">
+              <form class="form-horizontal" method="POST" action="<?=base_url('seniman/proses/seni.php?proses=update');?>" enctype="multipart/form-data">
                 <div class="card-body row">
 					<input type="hidden" name="snm_id" value="<?=$snm_id?>">
 					<div class="col-md-12">
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Judul *</label>
 							<div class="col-sm-10">
-							<input type="text" class="form-control" placeholder="Judul Seni" name="judul" required>
+							<input type="hidden" value="<?=$r['sn_id']?>" name="sn_id" required>
+							<input type="text" class="form-control" placeholder="Judul Seni" value="<?=$r['judul']?>" name="judul" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Kategori *</label>
 							<div class="col-sm-10 form-check"><span class="col-sm-2"></span>
-								<input class="form-check-input" type="radio" name="kategori" value="Kelompok">
+								<input class="form-check-input" <?php if ($r['kategori']=="Kelompok") {
+									echo "checked";
+								}?> type="radio" name="kategori" value="Kelompok">
 								<label class="form-check-label col-sm-3">Kelompok</label>
-								<input class="form-check-input" type="radio" name="kategori" value="Individu">
+								<input class="form-check-input" <?php if ($r['kategori']=="Individu") {
+									echo "checked";
+								}?> type="radio" name="kategori" value="Individu">
 								<label class="form-check-label col-sm-3">Individu</label>
 							</div>
 						</div>
@@ -49,13 +54,13 @@
 							<label class="col-sm-2 col-form-label">Jenis *</label>
 							<div class="col-sm-10">
 							<select name="jns_id" id="" class="form-control">
-								<option class="form-control">--pilih jenis--</option>
+								<option class="form-control">Pilih Jenis</option>
 								<?php
                  				$show=$syntax->view("jenis");
 								foreach ($show as $j) {
-									echo '<option value="'.$j['jns_id'].'" class="form-control">'.$j['jenis'].'</option>';
-								}
 								?>
+									<option value="<?=$j['jns_id']?>" <?php if($r['jns_id']==$j['jns_id']) {echo'selected';}?> class="form-control"><?=$j['jenis']?></option>
+									<?php }?>
 							</select>
 							</div>
 						</div>
@@ -70,26 +75,27 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">jangkauan *</label>
 							<div class="col-sm-10">
-							<input type="text" class="form-control" placeholder="kecamatan/kabupaten/provinsi" name="jangkauan" required>
+							<input type="text" class="form-control" value="<?=$r['jangkauan']?>" placeholder="kecamatan/kabupaten/provinsi" name="jangkauan" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">harga (Rp.) *</label>
 							<div class="col-sm-10">
-							<input type="number" class="form-control" min="0" name="harga" required>
+							<input type="number" value="<?=$r['harga']?>" class="form-control" min="0" name="harga" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Gambar *</label>
 							<div class="col-sm-10">
-							<input type="file" class="form-control"  name="foto" required>
+							<input type="file" class="form-control"  name="foto">
+								<span style="color:red;"><i> *kosongi jika tetap</i></span>
 							</div>
 						</div>
 					</div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-success float-right"><i class="fa fa-plus"></i> Add</button>
+                  <button type="submit" class="btn btn-success float-right"><i class="fa fa-save"></i> Save</button>
                   <a href="<?=base_url('seniman/index.php?page=postingan')?>" class="btn btn-info float-left"><i class="fa fa-angle-double-left"></i> back</a>
                 </div>
                 <!-- /.card-footer -->

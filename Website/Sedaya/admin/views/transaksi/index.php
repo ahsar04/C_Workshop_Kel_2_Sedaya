@@ -48,14 +48,16 @@
                     <td><?=$r['tgl_kegiatan']?> - <?=$r['tgl_akhir']?></td>
                     <td><?=$r['nama']?></td>
                     <td><?php
-                    if ($r['t_status']==0) {
-                      echo "<b class='text-warning'><i>Menunggu Konfirmasi</i></b>";
-                    }elseif ($r['t_status']==1) {
-                      echo "<b class='text-info'><i>Diproses</i></b>";
-                    }elseif ($r['t_status']==2) {
-                      echo "<b class='text-primary'><i>Selesai</i></b>";
-                    }elseif ($r['t_status']==3) {
-                      echo "<b class='text-danger'><i>Batal</i></b>";
+                    if ($r['t_status']=='0') {
+                      echo '<p class="text-info">Menunggu Konfirmasi</p>';
+                    }elseif ($r['t_status']=='1') {
+                      echo '<p class="text-warning">Menunggu pembayaran</p>';
+                    }elseif ($r['t_status']=='2') {
+                      echo '<p class="text-primary">Proses</p>';
+                    }elseif ($r['t_status']=='3') {
+                      echo '<p class="text-primary">Selesai</p>';
+                    }elseif ($r['t_status']=='4') {
+                      echo '<p class="text-danger">Batal</p>';
                     }
                     ?></td>
                     <td class="text-center">

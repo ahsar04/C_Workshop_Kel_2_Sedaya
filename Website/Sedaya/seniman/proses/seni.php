@@ -2,19 +2,16 @@
 $proses=$_GET['proses'];
 if($proses=='update'){
 	$sn_id=$_POST["sn_id"];
-	$nama=$_POST["nama"];
-	$jk=$_POST['jk'];
-	$tmp_lahir=$_POST['tmp_lahir'];
-	$tgl_lahir=$_POST['tgl_lahir'];
-	$telp=$_POST['telp'];
-	$email=$_POST['email'];
-	$alamat=$_POST['alamat'];
-	$username=md5($_POST['username']);
-	$pasword=md5($_POST['password']);
-	// $status=2;
+	$judul=$_POST["judul"];
+	$kategori=$_POST['kategori'];
+	$jns_id=$_POST['jns_id'];
+	$ket=$_POST['ket'];
+	$jangkauan=$_POST['jangkauan'];
+	$harga=$_POST['harga'];
+	$status=0;
 	if(isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $sn_id."_".$_FILES["foto"]["name"];
+        $filename = date('Ymd_H-i-s')."_".$sn_id."_".$_FILES["foto"]["name"];
         $filetype = $_FILES["foto"]["type"];
         $filesize = $_FILES["foto"]["size"];
 		$foto=$filename;
@@ -30,15 +27,15 @@ if($proses=='update'){
         if(in_array($filetype, $allowed)){
             // Check whether file exists before uploading it
 
-                $q = $syntax->view_kon("mstr_user","sn_id='$sn_id'");
+                $q = $syntax->view_kon("seni","sn_id='$sn_id'");
                 $r = $q->fetch_array();
-                $fotoawal=$r['foto'];
-            	$file='../public/img/user/'.$fotoawal;
+                echo $fotoawal=$r['gambar'];
+            	echo $file='../../admin/public/img/seni/'.$fotoawal;
             	unlink($file);
-                move_uploaded_file($_FILES["foto"]["tmp_name"], "../public/img/user/" . $filename);
-				$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',username='$username',password='$pasword',foto='$foto'","sn_id='$sn_id'");
+                move_uploaded_file($_FILES["foto"]["tmp_name"], "../../admin/public/img/seni/" . $filename);
+				$cek_proses=$syntax->update("seni","judul='$judul',kategori='$kategori',jns_id='$jns_id',keterangan='$ket',jangkauan='$jangkauan',harga='$harga',status='$status',gambar='$foto'","sn_id='$sn_id'");
 				if($cek_proses){
-					header('location: ' .base_url('seniman/index.php?page=user'));
+					header('location: ' .base_url('seniman/index.php?page=postingan'));
 				}else{
 					echo "eror";
 				}
@@ -47,9 +44,9 @@ if($proses=='update'){
         }
     } else{
                 
-		$cek_proses=$syntax->update("mstr_user","nama='$nama',jk='$jk',tmp_lahir='$tmp_lahir',tgl_lahir='$tgl_lahir',telp='$telp',email='$email',alamat='$alamat',username='$username',password='$pasword',status='$status'","sn_id='$sn_id'");
+				$cek_proses=$syntax->update("seni","judul='$judul',kategori='$kategori',jns_id='$jns_id',keterangan='$ket',jangkauan='$jangkauan',harga='$harga',status='$status'","sn_id='$sn_id'");
 		if($cek_proses){
-			header('location: ' .base_url('seniman/index.php?page=user'));
+			header('location: ' .base_url('seniman/index.php?page=postingan'));
 		}else{
 			echo "eror";
 		}
@@ -58,8 +55,8 @@ if($proses=='update'){
 	$sn_id=$_GET['sn_id'];
 	$q = $syntax->view_kon("seni","sn_id='$sn_id'");
     $r = $q->fetch_array();
-    $foto=$r['foto'];
-    $file="../public/img/seni/$foto";
+    $foto=$r['gambar'];
+    $file="../../admin/public/img/seni/$foto";
     if(unlink($file)){
 			$cek_proses=$syntax->delete("seni","sn_id='$sn_id'");
 			if($cek_proses){
