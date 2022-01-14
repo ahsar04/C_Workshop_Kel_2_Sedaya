@@ -148,6 +148,14 @@ if($proses=='update'){
 	}else{
 		echo "eror";
 	}
+}elseif ($proses=='rekomandasi') {
+		echo $sn_id=$_POST['sn_id'];
+		$cek_proses=$syntax->update("seni","status='2'","sn_id='$sn_id'");
+		if($cek_proses){
+			header('location: ' .base_url('admin/index.php?page=post-pending'));
+		}else{
+			echo "eror";
+		}
 }
 
 ?>

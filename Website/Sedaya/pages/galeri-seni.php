@@ -155,7 +155,7 @@
         <ul class="filters_menu">
           <li class="active" data-filter="*">All</li>
           <?php
-            $show1=$syntax->view_field('distinct jenis.jenis, jenis.jns_id','seni join jenis on seni.jns_id=jenis.jns_id where status=1');
+            $show1=$syntax->view_field('distinct jenis.jenis, jenis.jns_id','seni join jenis on seni.jns_id=jenis.jns_id where status!=0');
             foreach ($show1 as $row) {
           ?>
           <li data-filter=".<?=$row['jns_id']?>"><?=$row['jenis']?></li>
@@ -170,7 +170,7 @@
         <div class="filters-content">
           <div class="row grid">
             <?php
-            $show=$syntax->view('seni join jenis on seni.jns_id=jenis.jns_id where status=1');
+            $show=$syntax->view('seni join jenis on seni.jns_id=jenis.jns_id where status!=0');
             foreach ($show as $r) {
             ?>
             <div class="col-sm-6 col-lg-4 all <?=$r['jns_id']?>">

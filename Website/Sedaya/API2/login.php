@@ -1,17 +1,17 @@
 <?php
 require_once("../admin/syntax.php");
 	header('Content-Type: aplication/json');
-    // $content = trim(file_get_contents("php://input"));
-    // $decoded = json_decode($content,true);
+    $content = trim(file_get_contents("php://input"));
+    $decoded = json_decode($content,true);
 
-    $user = $_POST['email'];
-    $pass = $_POST['password'];
+    $user = $decoded['username'];
+    $pass = $decoded['password'];
     if (empty($user)|| empty($pass)) {
-        // http_response_code(404);
+        http_response_code(404);
         echo json_encode(array(
-            'ok'=>false,
-            'error_code'=>404,
-            'message'=>'Username dan Password tidak boleh kosong'
+            'code'=>'404',
+            'message'=>'Username dan Password tidak boleh kosong!!',
+            'data'=>null
         ));
     }else{
         if (!empty(trim($user)) && !empty(trim($pass))) {
@@ -21,10 +21,10 @@ require_once("../admin/syntax.php");
                     $cek_login = $syntax->view_kon("mstr_user"," mstr_user.username='$user' && mstr_user.password='".md5($pass)."'");
                     $num = mysqli_num_rows($cek_login);
                     if ($num<=0) {
-                            // http_response_code(404);
+                            http_response_code(404);
                             echo json_encode(array(
                                 'code'=>'404',
-                                'message'=>'Username atau Password salah',
+                                'message'=>'Username atau Password salah!',
                                 'data'=>null
                             ));
                     }else{
@@ -36,26 +36,27 @@ require_once("../admin/syntax.php");
                                 'data'=>$row
                         ));
                         }else{
-                            // http_response_code(404);
+                            http_response_code(404);
                             echo json_encode(array(
                                 'code'=>'404',
-                                'message'=>'Data tidak ditemukan',
-                                'data'=>null
+                                'message'=>'Data tidak ditemukan!',
+                                'data'=>$row
                             ));
                         }
                     }
             }else{
                 $row = $cek_login->fetch_array();
                 if ($cek_login ) {
-                    echo json_encode(array('code'=>'200',
+                    echo json_encode(array(
+                        'code'=>'200',
                         'message'=>'Berhasil',
                         'data'=>$row
                 ));
                 }else{
-                    // http_response_code(404);
+                    http_response_code(404);
                     echo json_encode(array(
                         'code'=>'404',
-                        'message'=>'Data tidak ditemukan',
+                        'message'=>'Data tidak ditemukan!',
                         'data'=>null
                     ));
                 }

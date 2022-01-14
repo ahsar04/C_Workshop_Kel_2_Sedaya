@@ -5,9 +5,9 @@
         <div class="row">
         <div class="col-md-5"></div>
         <div class="heading_container">
-          <h2 style="color:white;">User Register</h2>
+          <h2>User Register</h2>
         </div>
-        </div><br><br>
+        </div>
         <div class="row">
           <div class="col-md-12">
             <div class="form_container">
@@ -81,17 +81,22 @@
                 </div>
               </div><br>
                 <div class="row">
-                  <div class="col-md-9">
-                    <h5 style="color:white;">have an account?<a href="<?=base_url('index.php?page=user-login')?>" style="color:white;"><i> Login</i> </h5></a></div>
-                  <div class="col-md-3 btn_box">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-2 btn_box">
                     <button type="submit" name="register">Register</button>
                   </div>
                 </div><br>
+                <div class="row">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-7">
+                <h5>have an account?<a href="<?=base_url('index.php?page=user-login')?>"><i> <u>Login</u></i> </h5></a></div>
+                </div>
               </form>
+                    
             </div>
           </div>
         </div>
       </div>
     </section>
-    <br /><br /><br /><br /><br /><br><br>
+    <br /><br />
     <!-- end book section -->

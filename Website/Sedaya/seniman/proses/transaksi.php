@@ -6,7 +6,7 @@ if($proses=='konfirmasi'){
 	$t_status=1;
 	$cek_proses=$syntax->update("transaksi","transport='$transport', t_status='$t_status'","no_transaksi='$no_transaksi'");
 	if($cek_proses){
-		header('location: ' .base_url('seniman/index.php?page=detail-transaksi&&no_transaksi='.$no_transaksi));
+		header('location: ' .base_url('seniman/index.php?page=transaksi'));
 	}else{
 		echo "eror";
 	}

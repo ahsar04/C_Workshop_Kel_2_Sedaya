@@ -65,7 +65,7 @@
                           <div class="row">
                           <div class="col-md-6"></div>
                           <div class="col-md-6"><a class=" btn btn-secondary  btn-block" href="#" data-toggle="modal" data-target="#modal-lg" onclick="tampildata('<?=$sn_id?>','<?=$nama?>','<?=$alamat?>','<?=$judul?>','<?=base_url('admin/public/img/seni/'.$gambar)?>','<?=$kategori?>',
-                          '<?=$jenis?>','<?=$keterangan?>','<?=$jangkauan?>','<?=number_format($harga,2,".",",")?>','<?=$status?>')">Detail
+                          '<?=$jenis?>','<?=$keterangan?>','<?=$jangkauan?>','<?=number_format($harga,2,'.',',')?>','<?=$status?>')">Detail
                           </a></div></div>
                         </div>
                       </div>

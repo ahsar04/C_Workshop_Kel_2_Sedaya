@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiConfig {
 
-    private const val BASE_URL = Constans.BASE_URL + "API/"
+    private const val BASE_URL = Constans.BASE_URL + "API2/"
 
     private val client: Retrofit
         get() {

@@ -25,7 +25,7 @@ Veritrans_Config::$is3ds = true;
     <meta name="author" content="" />
     <link rel="shortcut icon" href="admin/images/sedaya.png" type="" />
 
-    <title>Sedaya | Explore Your Art</title>
+    <title>Sedaya | Expose Your Art</title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -61,7 +61,7 @@ Veritrans_Config::$is3ds = true;
   <body>
     <?php
     if (isset($_GET['page'])) {
-      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile'||$_GET['page']=='update-profile') {
+      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile'||$_GET['page']=='update-profile'||$_GET['page']=='user-login'||$_GET['page']=='user-register') {
         
       }else{
         echo '<div class="hero_area">
@@ -76,7 +76,7 @@ Veritrans_Config::$is3ds = true;
     ?>
       <!-- header section strats -->
       <header <?php if (isset($_GET['page'])) {
-      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile'||$_GET['page']=='update-profile') {
+      if ($_GET['page']=='galeri-seni'||$_GET['page']=='detail-seni'||$_GET['page']=='chart'||$_GET['page']=='profile'||$_GET['page']=='update-profile'||$_GET['page']=='user-login'||$_GET['page']=='user-register') {
         echo 'class="header_section menu-bg"';
       }else{
         echo 'id="menu" class="header_section fixed-top "';
@@ -161,7 +161,7 @@ Veritrans_Config::$is3ds = true;
       <?php include 'routes.php'?>
 
     <!-- footer section -->
-    <footer class="footer_section">
+    <footer class="footer_section sticky-bottom">
       <div class="container">
         <div class="row">
           <div class="col-md-4 footer-col">
@@ -209,9 +209,10 @@ Veritrans_Config::$is3ds = true;
             </div>
           </div>
           <div class="col-md-4 footer-col">
-            <h4>Opening Hours</h4>
-            <p>Senin - Jum'at</p>
-            <p>10.00 Am -05.00 Pm</p>
+            <h4>Sedaya Team</h4>
+            <p>Kelompok 2</p>
+            <p>TIF C'2020</p>
+            <p>Politeknik Negeri Jember</p>
           </div>
         </div>
         <div class="footer-info">

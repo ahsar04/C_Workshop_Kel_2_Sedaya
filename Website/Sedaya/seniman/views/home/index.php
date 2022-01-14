@@ -12,7 +12,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Postingan aktif</span>
                             <span class="info-box-number">
-                            <?php $show=$syntax->view("seni where status=1 and snm_id=".$_SESSION['login-user']['snm_id']);
+                            <?php $show=$syntax->view("seni where status!=0 and snm_id=".$_SESSION['login-user']['snm_id']);
                                 echo mysqli_num_rows($show);
                             ?>
                             </span>

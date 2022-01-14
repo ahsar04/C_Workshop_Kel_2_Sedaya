@@ -100,7 +100,7 @@
                         <div class="info-box-content" style="color:black;">
                             <span class="info-box-text">Postingan aktif</span>
                             <span class="info-box-number">
-                            <?php $show=$syntax->view("seni where status=1");
+                            <?php $show=$syntax->view("seni where status!=0");
                                 echo mysqli_num_rows($show);
                             ?>
                             </span>

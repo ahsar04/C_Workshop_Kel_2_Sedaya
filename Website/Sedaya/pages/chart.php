@@ -7,7 +7,7 @@
     <section class="food_section about pt-0 padding">
         <div class="container">
           <div class="heading_container heading_center">
-            <h2>Menunggu pembayaran</h2>
+            <h2>Transaksi Berlangsung</h2>
           </div><br><br>
           <div class="row">
             <div class="col-lg-12">
@@ -19,7 +19,7 @@
                 <th>HARGA</th>
                 <th>TRANSPORT</th>
                 <th>TANGGAL</th>
-                <th>JUMLAH</th>
+                <!-- <th>JUMLAH</th> -->
                 <th>STATUS</th>
                 <th class="text-center">ACTION</th>
               </tr>
@@ -28,7 +28,7 @@
             <?php
             $usr_id = $_SESSION['login-user']['usr_id'];
             $n=1;
-            $show=$syntax->view("transaksi,seni,mstr_user where transaksi.sn_id=seni.sn_id and transaksi.usr_id=mstr_user.usr_id and transaksi.usr_id=$usr_id and transaksi.t_status<=1 ");
+            $show=$syntax->view("transaksi,seni,mstr_user where transaksi.sn_id=seni.sn_id and transaksi.usr_id=mstr_user.usr_id and transaksi.usr_id=$usr_id and transaksi.t_status<=2 ");
             foreach ($show as $r) {
             ?>
                 <tr>
@@ -37,7 +37,7 @@
                 <td>Rp. <?=number_format($r['harga'],2,".",",")?></td>
                 <td>Rp. <?=number_format($r['transport'],2,".",",")?></td>
                 <td><?=$r['tgl_kegiatan']?></td>
-                <td><?=$r['jml']?> x</td>
+                <!-- <td><?=$r['jml']?> x</td> -->
                 <td><?php
                 if ($r['t_status']=='0') {
                   echo '<p class="text-info">Menunggu Konfirmasi</p>';
@@ -52,13 +52,15 @@
                 }
                 ?></td>
                 <td class="text-center">
-                  <a href="<?=base_url('index.php?page=detail-seni&&sn_id='.$r['sn_id']);?>"><button class="btn btn-info ">Lihat</button></a>
+                  <a href="<?=base_url('index.php?page=detail-seni&&sn_id='.$r['sn_id']);?>"><button class="btn btn-info ">Detail Seni</button></a>
                   <?php
                   if ($r['t_status']=='1') {
-                  echo'<a id="pay-button" href="#"><button class="btn btn-success ">Bayar</button></a>';
+                  echo' <a id="pay-button" href="#"><button class="btn btn-success ">Bayar</button></a>';
+                  }elseif ($r['t_status']=='2') {
+                  echo' <a onclick="return confirm('."'Konfirmasi pesanan selesai?'".')" href="'.base_url('seniman/proses/transaksi.php?proses=selesai&&no_transaksi='.$r['no_transaksi']).'"><button class="btn btn-success ">Konfirmasi Selesai</button></a>';
                   }
                   if ($r['t_status']!='3' && $r['t_status']!='2') {
-                    echo '<a href="'.base_url('seniman/proses/transaksi.php?proses=batal&&no_transaksi='.$r['no_transaksi']).'"><button class="btn btn-danger ">Batal</button></a>';
+                    echo ' <a onclick="return confirm('."'Batalkan pesanan?'".')" href="'.base_url('seniman/proses/transaksi.php?proses=batal&&no_transaksi='.$r['no_transaksi']).'"><button class="btn btn-danger ">Batal</button></a>';
                   }
                   // if ($r['tgl_kegiatan']==date('Y-m-d')) {
                   //   echo '<a href="'.base_url('seniman/proses/transaksi.php?proses=selesai&&no_transaksi='.$r['no_transaksi']).'"><button class="btn btn-warning ">Selesai</button></a>';
@@ -137,7 +139,7 @@
                 <th>HARGA</th>
                 <th>TRANSPORT</th>
                 <th>TANGGAL</th>
-                <th>JUMLAH</th>
+                <!-- <th>JUMLAH</th> -->
                 <th>STATUS</th>
                 <th class="text-center">ACTION</th>
               </tr>
@@ -150,6 +152,35 @@
                 </pre>
               </p>
           </div>
+          <!-- Button trigger modal -->
+          <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Launch static backdrop modal
+          </button> -->
+
+          <!-- Modal -->
+          <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <script>var myModal = document.getElementById('myModal')
+          var myInput = document.getElementById('myInput')
+
+          myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus()
+          })</script>
           <div class="heading_container heading_center">
             <h2>Semua Transaksi</h2>
           </div><br><br>
@@ -163,7 +194,7 @@
                 <th>HARGA</th>
                 <th>TRANSPORT</th>
                 <th>TANGGAL</th>
-                <th>JUMLAH</th>
+                <!-- <th>JUMLAH</th> -->
                 <th>STATUS</th>
                 <th class="text-center">ACTION</th>
               </tr>
@@ -172,7 +203,7 @@
             <?php
             $usr_id = $_SESSION['login-user']['usr_id'];
             $n=1;
-            $show=$syntax->view("transaksi,seni,mstr_user where transaksi.sn_id=seni.sn_id and transaksi.usr_id=mstr_user.usr_id and transaksi.usr_id=$usr_id and transaksi.t_status>=2 ");
+            $show=$syntax->view("transaksi,seni,mstr_user where transaksi.sn_id=seni.sn_id and transaksi.usr_id=mstr_user.usr_id and transaksi.usr_id=$usr_id and transaksi.t_status>=3 ");
             foreach ($show as $r) {
             ?>
                 <tr>
@@ -181,7 +212,7 @@
                 <td>Rp. <?=number_format($r['harga'],2,".",",")?></td>
                 <td>Rp. <?=number_format($r['transport'],2,".",",")?></td>
                 <td><?=$r['tgl_kegiatan']?></td>
-                <td><?=$r['jml']?> x</td>
+                <!-- <td><?=$r['jml']?> x</td> -->
                 <td><?php
                 if ($r['t_status']=='0') {
                   echo '<p class="text-info">Menunggu Konfirmasi</p>';
@@ -196,15 +227,15 @@
                 }
                 ?></td>
                 <td class="text-center">
-                  <a href="<?=base_url('index.php?page=detail-seni&&sn_id='.$r['sn_id']);?>"><button class="btn btn-info ">Lihat</button></a>
-                  <?php
+                  <a href="<?=base_url('index.php?page=detail-seni&&sn_id='.$r['sn_id']);?>"><button class="btn btn-info ">Detail Seni</button></a>
+                  <!-- <?php
                   if ($r['t_status']=='1') {
-                  echo'<a id="pay-button" href="#"><button class="btn btn-success ">Bayar</button></a>';
+                  echo' <a id="pay-button" href="#"><button class="btn btn-success ">Bayar</button></a>';
                   }
                   if ($r['t_status']!='3' && $r['t_status']!='4') {
-                    echo '<a href="#"><button class="btn btn-danger ">Batal</button></a>';
+                    echo ' <a href="#"><button class="btn btn-danger ">Batal</button></a>';
                   }
-                  ?>
+                  ?> -->
                 </td>
               </tr>
               
@@ -219,7 +250,7 @@
                 <th>HARGA</th>
                 <th>TRANSPORT</th>
                 <th>TANGGAL</th>
-                <th>JUMLAH</th>
+                <!-- <th>JUMLAH</th> -->
                 <th>STATUS</th>
                 <th class="text-center">ACTION</th>
               </tr>

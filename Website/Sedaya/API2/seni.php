@@ -15,21 +15,21 @@ if ($data) {
             'jenis'=>$row['jenis'],
             'keterangan'=>$row['keterangan'],
             'harga'=>$row['harga'],
-            'gambar'=>$row['gambar'],
+            'image'=>$row['gambar'],
             'status'=>$row['status'],
         ));
     }
     echo json_encode(array(
         'code'=>'200',
         'message'=>'berhasil',
-        'seni'=>$result
+        'data'=>$result
     ));
 }else{
-    // http_response_code(404);
+    http_response_code(404);
     echo json_encode(array(
         'code'=>'404',
-        'message'=>'Gagal',
-        'seni   '=>null
+        'message'=>'Terjadi kesalahan!',
+        'data'=>null
     ));
 }
        

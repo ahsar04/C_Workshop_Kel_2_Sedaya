@@ -1,22 +1,22 @@
 <?php
 require_once("../admin/syntax.php");
 	header('Content-Type: aplication/json');
-    $data = $syntax->view("seni,jenis,mstr_seniman where seni.jns_id=jenis.jns_id and seni.snm_id=mstr_seniman.snm_id ORDER BY sn_id DESC");
+    parse_str(file_get_contents('php://input'),$post);
+    $no_transaksi=$post['no_transaksi'];
+    $data = $syntax->view("transaksi,seni,mstr_user where transaksi.sn_id=seni.sn_id and transaksi.usr_id=mstr_user.usr_id and transaksi.no_transaksi=$no_transaksi ");
 if ($data) {
     $result = array();
     while ($row = mysqli_fetch_array($data)) {
         array_push($result, array(
             'sn_id'=>$row['sn_id'],
-            'snm_id'=>$row['snm_id'],
-            'nama_snm'=>$row['nama_snm'],
-            'alamat'=>$row['alamat'],
             'judul'=>$row['judul'],
-            'kategori'=>$row['kategori'],
-            'jenis'=>$row['jenis'],
-            'keterangan'=>$row['keterangan'],
             'harga'=>$row['harga'],
+            'tgl_pemesanan'=>$row['tgl_pemesanan'],
+            'tgl_kegiatan'=>$row['tgl_kegiatan'],
+            'ttl_harga'=>$row['ttl_harga'],
+            'transport'=>$row['transport'],
             'gambar'=>$row['gambar'],
-            'status'=>$row['status'],
+            't_status'=>$row['t_status'],
         ));
     }
     echo json_encode(array(

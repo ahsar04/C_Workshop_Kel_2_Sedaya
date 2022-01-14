@@ -65,11 +65,11 @@
                     <input type="hidden" name="harga" value="<?=$r['harga']?>">
                     <input type="hidden" name="usr_id" value="<?=$_SESSION['login-user']['usr_id']?>">
                     <div class="row">
-                      <label class="col-md-3" for=""><b>Jumlah tampil</b> </label>:
-                        <div class="col-md-3">
-                          <input type="number" class="form-control" name="jml" min="1" value="1"  required/>
-                        </div>
-                    </div><br>
+                      <!-- <label class="col-md-3" for=""><b>Jumlah tampil</b> </label>: -->
+                        <!-- <div class="col-md-3"> -->
+                          <input type="hidden" class="form-control" name="jml" min="1" value="1"  required/>
+                        <!-- </div> -->
+                    </div>
                     <div class="row">
                       <label class="col-md-3" for=""><b>Tanggal</b> </label>:
                         <div class="col-md-5">

@@ -4,19 +4,14 @@ require_once("../admin/syntax.php");
 	// $get_id=substr("$_SERVER[REQUEST_URI]",31);
     parse_str(file_get_contents('php://input'),$post);
     // $decoded = json_decode($content,true);
-	$usr_id=$post['usr_id'];
-	$nama=$post["nama"];
-	$alamat=$post['alamat'];
-	$telp=$post["telp"];
-	$cek_proses=$syntax->update("mstr_user","nama='$nama',alamat='$alamat',telp='$telp'","usr_id='$usr_id'");
+	$no_transaksi=$post["no_transaksi"];
+	$t_status=3;
+	$cek_proses=$syntax->update("transaksi","t_status='$t_status'","no_transaksi='$no_transaksi'");
 	    if ($cek_proses ) {
-            $cek_login = $syntax->view_kon("mstr_user","usr_id='$usr_id'");
-            // $num = mysqli_num_rows($cek_login);
-            $row = $cek_login->fetch_array();
                 echo json_encode(array(
 					'code'=>'200',
-                    'message'=>'Berhasil',
-                    'data'=>$row
+                    'message'=>'Transaksi selesai.',
+                    'data'=>null
         ));
         }else{
             // http_response_code(404);

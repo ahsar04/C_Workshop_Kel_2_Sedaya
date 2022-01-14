@@ -63,7 +63,7 @@
                       }elseif ($status==1) {
                         echo "<b class='text-primary'><i>aktif</i></b>";
                       }elseif ($status==2){
-                        echo "<b class='text-info'><i>Sedang dipesan</i></b>";
+                        echo "<b class='text-info'><i>Rekomendasi</i></b>";
                       }elseif ($status==3){
                         echo "<b class='text-danger'><i>Di nonaktifkan</i></b>";
                       }

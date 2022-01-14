@@ -5,7 +5,7 @@
         <div class="row">
         <div class="col-md-3"></div>
         <div class="heading_container">
-          <h2 style="color:white;">User Login </h2>
+          <h2>User Login </h2>
         </div></div>
         <div class="row">
           <div class="col-md-3"></div>
@@ -14,10 +14,11 @@
               <form action="<?=base_url('admin/proses/user.php?proses=login');?>" method="POST">
                 <div>
                   <input
-                    type="text"
+                    type="email"
                     class="form-control"
                     name="username"
-                    placeholder="Username"
+                    placeholder="Email"
+                    required
                   />
                 </div>
                 <div>
@@ -26,17 +27,21 @@
                     class="form-control"
                     name="password"
                     placeholder="Password"
+                    required
                   />
                 </div>
-                <div class="btn_box">
+                <div class="row"><div class="col-md-8"></div>
+                <div class="col-md-3 btn_box">
                   <button type="submit" name="login">Login</button>
                 </div>
-              </form><br>
-              <h5 style="color:white;">new member?<a href="<?=base_url('index.php?page=user-register')?>" style="color:white;"><i> Register</i> </h5></a>
+              </div>
+              </form>
+              <h5>new member?<a href="<?=base_url('index.php?page=user-register')?>"><i> <u>Register</u></i> </h5></a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <br /><br /><br /><br /><br /><br><br>
+    <br /><br />
+    <br /><br />
     <!-- end book section -->

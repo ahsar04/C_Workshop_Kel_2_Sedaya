@@ -1,7 +1,9 @@
 <?php
 require_once("../admin/syntax.php");
 	header('Content-Type: aplication/json');
-    $data = $syntax->view("seni,jenis,mstr_seniman where seni.jns_id=jenis.jns_id and seni.snm_id=mstr_seniman.snm_id ORDER BY sn_id DESC");
+    
+    $sn_id = $_POST['sn_id'];
+    $data = $syntax->view("seni,jenis,mstr_seniman where seni.jns_id=jenis.jns_id and seni.snm_id=mstr_seniman.snm_id and seni.sn_id=$sn_id");
 if ($data) {
     $result = array();
     while ($row = mysqli_fetch_array($data)) {

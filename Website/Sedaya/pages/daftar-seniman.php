@@ -51,6 +51,7 @@
                   <div class="">
                     <input
                       type="file"
+                      id="foto"
                       class="form-control col-md-6"
                       name="foto"
                     />

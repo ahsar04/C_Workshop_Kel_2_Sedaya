@@ -258,7 +258,7 @@
         <div class="filters-content">
           <div class="row grid">
             <?php
-            $show=$syntax->view('seni where status=1 limit 6');
+            $show=$syntax->view('seni where status!=0 limit 6');
             foreach ($show as $r) {
             ?>
             <div class="col-sm-6 col-lg-4 all tari">

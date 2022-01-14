@@ -36,6 +36,6 @@ interface ApiService {
         @Part data: MultipartBody.Part? = null
     ): Response<LoginResponse>
 
-    @GET("seni")
+    @GET("seni.php")
     fun getSeni():Response<LoginResponse>
 }
