@@ -1,47 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sedaya">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    package="com.app.sedaya">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
-        android:name=".util.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/sedaya"
         android:label="@string/app_name"
-        android:networkSecurityConfig="@xml/network_security"
-        android:roundIcon="@mipmap/sedaya"
+        android:roundIcon="@mipmap/sedaya_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Sedaya"
-        android:usesCleartextTraffic="true">
+        android:networkSecurityConfig="@xml/config_network"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.Sedaya">
+<!--        <activity-->
+<!--            android:name=".activity.MainActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_main" />-->
+
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity
-            android:name=".NavigationActivity"
-            android:exported="true"
-            android:label="@string/title_activity_navigation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
-        <activity android:name=".ui.auth.LoginActivity" />
-        <activity android:name=".ui.auth.RegisterActivity" />
-        <activity android:name=".ui.updateProfile.UpdateProfileActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.BaruActivity" />
+        <activity android:name=".activity.MasukActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.UpdateProfileActivity" />
+        <activity android:name=".activity.DetailSeniActivity" />
+        <activity android:name=".activity.KeranjangActivity" />
+        <activity android:name=".activity.RiwayatActivity" />
+        <activity android:name=".activity.DetailTransaksiActivity" />
+        <activity android:name=".activity.LupaPasswordActivity" />
     </application>
 
 </manifest>

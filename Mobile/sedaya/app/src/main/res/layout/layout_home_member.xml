@@ -8,7 +8,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_30sdp"
         android:scaleType="centerCrop"
         android:src="@drawable/asset_top_bg" />
 
@@ -17,41 +17,41 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_10sdp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingHorizontal="@dimen/_10sdp">-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/_12sdp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_placeholder"
-                app:tint="@color/white" />
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:layout_width="@dimen/_12sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_placeholder"-->
+<!--                app:tint="@color/white" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:text="Dikirim ke"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_11ssp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/_5sdp"-->
+<!--                android:text="Dikirim ke"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="@dimen/_11ssp" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_3sdp"
-                android:text="Kontrakan Bahagia"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/_3sdp"-->
+<!--                android:text="Kontrakan Bahagia"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="@dimen/_11ssp"-->
+<!--                android:textStyle="bold" />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
@@ -59,86 +59,53 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <LinearLayout
+                    android:id="@+id/home_member"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_5sdp">
+
+                    <TextView
+                        android:id="@+id/tv_welcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Hai, Selamat datang"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/colorPrimary_800"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_nama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/_18sdp"
+                        android:text="Sedaya | Expose Your Art With Us!"
+                        android:textSize="@dimen/_9ssp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/colorPrimary_800"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </LinearLayout>
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingHorizontal="@dimen/_10sdp"
                     android:paddingVertical="@dimen/_5sdp">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/image_poin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/asset_gopay"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/tv_poin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:text="Rp.0"
-                        android:textSize="@dimen/_11ssp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/image_poin"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:text="0 Coin"
-                        android:textSize="@dimen/_11ssp"
-                        android:visibility="visible"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/image_poin"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_poin" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:paddingVertical="@dimen/_5sdp">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/image_mamber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_asset_gold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/tv_member_status"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:text="Member Gold"
-                        android:textSize="@dimen/_11ssp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/image_mamber"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:text="31 Kupon"
-                        android:textSize="@dimen/_11ssp"
-                        android:visibility="visible"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/image_mamber"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_member_status" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

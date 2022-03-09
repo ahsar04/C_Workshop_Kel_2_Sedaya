@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.sedaya.ui.home.HomeFragment"
+        android:name="com.app.sedaya.activity.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home0" />
 
     <fragment
-        android:id="@+id/navigation_history"
-        android:name="com.example.sedaya.ui.history.HistoryFragment"
-        android:label="Historyy"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_dashboard"
+        android:name="com.app.sedaya.activity.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_keranjang" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.sedaya.ui.profile.ProfileFragment"
+        android:name="com.app.sedaya.activity.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_profile0" />
+        tools:layout="@layout/fragment_akun" />
 </navigation>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/layout_home_toolbar" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/pb"
+            android:layout_centerInParent="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+    </RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/layout_senis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="@dimen/_10sdp"-->
+<!--                android:layout_marginTop="@dimen/_15sdp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Rekomendasi untuk anda"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/_15sdp"-->
+<!--                    android:textStyle="bold" />-->
+
+                <TextView
+                    android:id="@+id/tv_noData"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="@dimen/_20ssp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="Data tidak ditemukan."
+                    android:textColor="@color/blueSoft"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_error"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="@dimen/_20ssp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="oops.. Terjadi kesalahan."
+                android:textColor="@color/blueSoft"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+
+<!--            </RelativeLayout>-->
+
+<!--            <RelativeLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginHorizontal="@dimen/_10sdp"-->
+<!--                            android:layout_marginTop="@dimen/_15sdp">-->
+
+<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:text="Semua seni"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textColor="@color/black"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textSize="@dimen/_15sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textStyle="bold" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_alignParentEnd="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:text="Lihat Semua"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textColor="@color/colorPrimary_700"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textSize="@dimen/_13sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textStyle="bold" />&ndash;&gt;-->
+
+<!--                        </RelativeLayout>-->
+                <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_senisemua"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="vertical"
+                            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                            app:spanCount="2"
+                            tools:itemCount="6"
+                            tools:listitem="@layout/item_senisemua" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_searchSeni"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:spanCount="2"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_senisemua" />
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

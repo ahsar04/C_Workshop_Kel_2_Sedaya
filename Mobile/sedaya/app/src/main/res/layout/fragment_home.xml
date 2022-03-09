@@ -10,56 +10,105 @@
 
     <include layout="@layout/layout_home_toolbar" />
 
+    <RelativeLayout
+        android:id="@+id/layout_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/pb"
+            android:layout_centerInParent="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+    </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/layout_searchHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_noData"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="@dimen/_20ssp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="Data tidak ditemukan."
+                    android:textColor="@color/blueSoft"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_error"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="@dimen/_20ssp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="oops.. Terjadi kesalahan."
+                    android:textColor="@color/blueSoft"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_searchSeni"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    app:spanCount="2"
+                    tools:itemCount="6"
+                    tools:listitem="@layout/item_senisemua" />
+
+            </LinearLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
+            android:id="@+id/layout_sliderseni"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <include layout="@layout/layout_home_member" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:paddingHorizontal="@dimen/_5sdp"
-                android:id="@+id/rv_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="5"
-                tools:itemCount="5"
-                tools:listitem="@layout/item_home_category" />
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_slider"
+                android:layout_width="@dimen/_280sdp"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_gravity="center_horizontal"/>
 
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:scrollbars="none"
-                android:visibility="visible">
+<!--            <HorizontalScrollView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:scrollbars="none"-->
+<!--                android:visibility="visible">-->
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp">
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp">-->
+<!--                    -->
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_slider"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount="3"
-                        tools:listitem="@layout/item_home_slider" />
+<!--                </RelativeLayout>-->
 
-                </RelativeLayout>
-
-            </HorizontalScrollView>
+<!--            </HorizontalScrollView>-->
 
             <RelativeLayout
+                android:id="@+id/tv_seniTerbaru"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
@@ -68,20 +117,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rekomendasi untuk anda"
+                    android:text="Seni terbaru"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="Lihat Semua"
-                    android:textColor="@color/colorPrimary_700"
-                    android:textSize="@dimen/_13sdp"
-                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -98,19 +138,20 @@
                     android:layout_marginStart="@dimen/_10sdp">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_product_terlaris"
+                        android:id="@+id/rv_seni"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="3"
-                        tools:listitem="@layout/item_home_produk_terlaris" />
+                        tools:listitem="@layout/item_seni" />
 
                 </RelativeLayout>
 
             </HorizontalScrollView>
 
             <RelativeLayout
+                android:id="@+id/tv_rekomseni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
@@ -119,38 +160,82 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Semua seni"
+                    android:text="Rekomendasi seni"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="Lihat Semua"
-                    android:textColor="@color/colorPrimary_700"
-                    android:textSize="@dimen/_13sdp"
-                    android:textStyle="bold" />
-
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_product_terbaru"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                app:spanCount="2"
-                tools:itemCount="6"
-                tools:listitem="@layout/item_home_produk_terbaru" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:scrollbars="none"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_senirekom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_seni" />
+
+                </RelativeLayout>
+
+            </HorizontalScrollView>
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="@dimen/_10sdp"-->
+<!--                android:layout_marginTop="@dimen/_15sdp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Semua seni"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/_15sdp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:text="Lihat Semua"-->
+<!--                    android:textColor="@color/colorPrimary_700"-->
+<!--                    android:textSize="@dimen/_13sdp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rv_product_terbaru"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                android:layout_marginBottom="@dimen/_10sdp"-->
+<!--                android:orientation="vertical"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"-->
+<!--                app:spanCount="2"-->
+<!--                tools:itemCount="6"-->
+<!--                tools:listitem="@layout/item_home_produk_terbaru" />-->
 
         </LinearLayout>
 
 
+
     </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>
